@@ -1,0 +1,9 @@
+Input:
+neo4j-sh (?)$ MATCH (source:City {name:"New York"}), (destination:City {name:"Los Angeles"}), (flight:Flight{code:"AA9"})CREATE (source)-[:HAS_FLIGHT]->(flight)-[:FLYING_TO]->(destination);
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Relationships created: 2
+Properties set: 2

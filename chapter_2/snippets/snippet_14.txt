@@ -1,0 +1,11 @@
+Input:
+neo4j-sh (?)$ MATCH (source:City {name:"Los Angeles"})-[:HAS_FLIGHT]->(f:Flight)-[:FLYING_TO]->(destination:City {name:"New York"}) RETURN f.code as flight_code, f.carrier as carrier;
+
+Output:
++-----------------------------------+
+| flight_code | carrier             |
++-----------------------------------+
+| "UA1262"    | "United"            |
+| "AA920"     | "American Airlines" |
++-----------------------------------+
+2 rows

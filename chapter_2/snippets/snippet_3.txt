@@ -1,0 +1,11 @@
+
+Input:
+neo4j-sh (?)$ CREATE (:City{name:"Mumbai", country:"India"}), (:City{name:"Chicago", country:"United States of America"}),(:City{name:"Las Vegas", country:"United States of America"}),(:City{name:"Los Angeles", country:"United States of America"}),(:City{name:"Toronto", country:"Canada"}),(:City{name:"London", country:"United Kingdom"}),(:City{name:"Madrid", country:"Spain"}),(:City{name:"Paris", country:"France"}),(:City{name:"Athens", country:"Greece"}),(:City{name:"Rome", country:"Italy"}),(:City{name:"Istanbul", country:"Turkey"}),(:City{name:"Singapore", country:"Singapore"}),(:City{name:"Sydney", country:"Australia"}),(:City{name:"Melbourne", country:"Australia"});
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Nodes created: 14
+Properties set: 28
+Labels added: 14

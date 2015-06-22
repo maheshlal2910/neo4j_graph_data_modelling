@@ -1,0 +1,9 @@
+Input:
+
+neo4j-sh (?)$ CREATE INDEX ON :City(country);
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Indexes added: 1

@@ -1,0 +1,8 @@
+Input:
+neo4j-sh (?)$ CREATE CONSTRAINT ON (city:City) ASSERT city.name IS UNIQUE;
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Constraints added: 1

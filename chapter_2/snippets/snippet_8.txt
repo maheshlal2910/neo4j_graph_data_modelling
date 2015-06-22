@@ -1,0 +1,14 @@
+Input:
+neo4j-sh (?)$ MATCH (c:City{country:"United States of America"}) RETURN c.name as City;
+
+Output:
++---------------+
+| City          |
++---------------+
+| "Las Vegas"   |
+| "New York"    |
+| "Los Angeles" |
+| "Chicago"     |
++---------------+
+4 rows
+

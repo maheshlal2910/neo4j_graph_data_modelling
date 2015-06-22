@@ -1,0 +1,13 @@
+Input:
+neo4j-sh (?)$ CREATE (n:City{name:"New York", country:"United States of America"}) RETURN n;
+
+Output:
++-------------------------------------------------------------+
+| n                                                           |
++-------------------------------------------------------------+
+| Node[1]{name:"New York",country:"United States of America"} |
++-------------------------------------------------------------+
+1 row
+Nodes created: 1
+Properties set: 2
+Labels added: 1

@@ -1,0 +1,7 @@
+Input:
+neo4j-sh (?)$ MATCH (source:City {name:"New York"}), (destination:City {name:"Los Angeles"}), (flight:Flight{code:"AA9"})
+CREATE (source)-[:HAS_FLIGHT]->(flight)-[:FLYING_TO-(destination);
+
+Output:
+WARNING: Only directed relationships are supported in CREATE (line 1, column 164 (offset: 163))
+"MATCH (source:City {name:"New York"}), (destination:City {name:"Los Angeles"}), (flight:Flight{code:"AA9"})CREATE (source)-[:HAS_FLIGHT]->(flight)-[:FLYING_TO]-(destination)"

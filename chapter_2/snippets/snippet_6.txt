@@ -1,0 +1,10 @@
+Input:
+neo4j-sh (?)$ MATCH (c1:City{name:"Athens"}), (c2:City{name:"Mumbai"}) RETURN c1.name as first_city, c2.name as second_city;
+
+Output:
++--------------------------+
+| first_city | second_city |
++--------------------------+
+| "Athens"   | "Mumbai"    |
++--------------------------+
+1 row

@@ -1,0 +1,14 @@
+Input:
+neo4j-sh (?)$ CREATE (flight:Flight {code:"AA920", carrier:"American Airlines", duration:305, source_airport_code:"LAX", departure:505, destination_airport_code:"JFK", arrival:990})
+WITH flight
+MATCH (source:City {name:"Los Angeles"}), (destination:City {name:"New York"})
+CREATE (source)-[:HAS_FLIGHT]->(flight)-[:FLYING_TO]->(destination);
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Nodes created: 1
+Relationships created: 2
+Properties set: 7
+Labels added: 1

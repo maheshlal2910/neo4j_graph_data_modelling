@@ -1,0 +1,28 @@
+CREATE CONSTRAINT ON (city:City) ASSERT city.name IS UNIQUE;
+
+CREATE (n:City{name:"Mumbai", country:"India"}) RETURN n;
+
+CREATE (n:City{name:"New York", country:"United States of America"}) RETURN n;
+CREATE (n:City{name:"Chicago", country:"United States of America"}) RETURN n;
+CREATE (n:City{name:"Las Vegas", country:"United States of America"}) RETURN n;
+CREATE (n:City{name:"Los Angeles", country:"United States of America"}) RETURN n;
+
+CREATE (n:City{name:"Toronto", country:"Canada"}) RETURN n;
+
+CREATE (n:City{name:"London", country:"United Kingdom"}) RETURN n;
+
+CREATE (n:City{name:"Madrid", country:"Spain"}) RETURN n;
+
+CREATE (n:City{name:"Paris", country:"France"}) RETURN n;
+
+CREATE (n:City{name:"Athens", country:"Greece"}) RETURN n;
+
+CREATE (n:City{name:"Rome", country:"Italy"}) RETURN n;
+
+CREATE (n:City{name:"Istanbul", country:"Turkey"}) RETURN n;
+
+CREATE (n:City{name:"Singapore", country:"Singapore"}) RETURN n;
+
+CREATE (n:City{name:"Sydney", country:"Australia"}) RETURN n;
+
+CREATE (n:City{name:"Melbourne", country:"Australia"}) RETURN n;
