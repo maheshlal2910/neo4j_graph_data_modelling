@@ -1,0 +1,17 @@
+Input:
+
+MATCH path = (london:City{name:'London'})-[:HAS_FLIGHT|FLYING_TO*0..6]->(melbourne:City{name:'Melbourne'})
+WITH 
+FILTER(f in nodes(path) WHERE  "Flight" IN labels(f)) as flights, 
+FILTER(city in nodes(path) WHERE "City" IN labels(city)) as cities
+RETURN 
+EXTRACT(city IN cities| city.name) as city,
+EXTRACT (flight IN flights| flight.code) as code, 
+EXTRACT (flight IN flights| flight.carrier) as carrier,
+EXTRACT (flight IN flights| flight.departure) as departure,
+EXTRACT (flight IN flights| flight.arrival) as arrival,
+EXTRACT (flight IN flights| flight.duration) as duration,
+EXTRACT (flight IN flights| flight.source_airport_code) as from_airport,
+EXTRACT (flight IN flights| flight.destination_airport_code) as to_airport
+
+Output:

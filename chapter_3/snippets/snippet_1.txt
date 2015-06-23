@@ -1,0 +1,6 @@
+Input:
+
+MATCH path = (london:City{name:'London'})-[:HAS_FLIGHT|FLYING_TO*0..6]->(melbourne:City{name:'Melbourne'})
+RETURN path;
+
+Output:
