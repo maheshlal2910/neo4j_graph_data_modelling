@@ -429,7 +429,7 @@ WITH flight
 MATCH (source:City {name:"Istanbul"}), (destination:City {name:"Athens"})
 CREATE (source)-[:HAS_FLIGHT]->(flight)-[:FLYING_TO]->(destination);
 
-CREATE (flight:Flight {code:"A3995", carrier:"Aegean", duration:80, source_airport_code:"ATH", departure:1280, destination_airport_code:"CDG", arrival:1360})
+CREATE (flight:Flight {code:"A3995", carrier:"Aegean", duration:80, source_airport_code:"ATH", departure:1280, destination_airport_code:"IST", arrival:1360})
 WITH flight
 MATCH (source:City {name:"Athens"}), (destination:City {name:"Istanbul"})
 CREATE (source)-[:HAS_FLIGHT]->(flight)-[:FLYING_TO]->(destination);
