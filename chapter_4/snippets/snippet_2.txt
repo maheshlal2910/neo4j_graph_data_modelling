@@ -1,0 +1,19 @@
+Input:
+neo4j-sh (?)$ CREATE (:User{name:"Mahesh Lal", email:"mahesh.lal@gmail.com"}),
+   (:User{name:"John Doe", email:"john.doe@gmail.com"}),
+   (:User{name:"Vishal P", email:"vishal.p@gmail.com"}),
+   (:User{name:"Dave Coeburg", email:"dave.coeburg@gmail.com"}),
+   (:User{name:"Brian Heritage", email:"brian.heritage@hotmail.com"}),
+   (:User{name:"Amit Kumar", email:"amit.kumar@hotmail.com"}),
+   (:User{name:"Pramod Bansal", email:"pramod.bansal@hotmail.com"}),
+   (:User{name:"Deepali T", email:"deepali.t@gmail.com"}),
+   (:User{name:"Hari Seldon", email:"hari.seldon@gmail.com"}),
+   (:User{name:"Elijah B", email:"elijah.b@gmail.com"});
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Nodes created: 10
+Properties set: 20
+Labels added: 10

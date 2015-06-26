@@ -1,0 +1,132 @@
+CREATE CONSTRAINT on booking:Booking ASSERT booking._id IS UNIQUE;
+
+MATCH (user:User{email:"john.doe@gmail.com"})
+MATCH (f1:Flight{code:"UA49"})
+MERGE (p1:Passenger{email:"vishal.p@gmail.com"}) ON CREATE SET p1.name = "Vishal Punyani", p1.age = 30
+MERGE (p2:Passenger{email:"john.doe@gmail.com"}) ON CREATE SET p2.name = "John Doe", p2.age = 25
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"b5489547-7e24-11e4-b327-14109fda6b71", booking_date:1417790677.274862, year: 2014, month: 12, day: 5})
+MERGE (j1:Journey{_id: "226f515c-1b0c-11e5-b4f8-6c40089a9424",  date_of_journey:1426357800.0, year: 2015, month: 3, day: 15})-[:BY_FLIGHT]-> (f1)
+WITH user, booking, j1, f1, p1, p2 
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_PASSENGER]->(p2)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name, p2.name; 
+
+MATCH (user:User{email:"john.doe@gmail.com"})
+MATCH (f1:Flight{code:"AA6144"})
+MERGE (p1:Passenger{email:"john.doe@gmail.com"}) ON CREATE SET p1.name = "John Doe", p1.age = 25
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"c9c8838a-7e28-11e4-ae07-14109fda6b71", booking_date:1417790677.274862, year: 2014, month: 12, day: 5})
+MERGE (j1:Journey{_id:"091106b8-1b0c-11e5-82ac-6c40089a9424", date_of_journey:1426789800.0, year: 2015, month: 3, day: 20})-[:BY_FLIGHT]-> (f1)
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1) 
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name; 
+
+MATCH (user:User{email:"vishal.p@gmail.com"})
+MATCH (f1:Flight{code:"UA1507"})
+MERGE (p2:Passenger{email:"vishal.p@gmail.com"}) ON CREATE SET p2.name = "Vishal Punyani", p2.age = 30
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"ccc84f47-7e28-11e4-90c4-14109fda6b71", booking_date:1417967187.965936, year: 2014, month: 12, day: 12})
+MERGE (j1:Journey{_id: "c29f4cd4-1b3e-11e5-b2a1-6c40089a9424", date_of_journey:1426617000.0, year: 2015, month: 3, day: 18})-[:BY_FLIGHT]-> (f1)
+WITH user, booking, j1, f1, p2
+MERGE (booking)-[:HAS_PASSENGER]->(p2) 
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p2.name; 
+
+
+MATCH (f:Flight) WHERE f.code IN ["QF94", "UA1262"] MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MERGE (p1:Passenger{email:"harvey.dent@gmail.com"})ON CREATE SET p1.name = "Harvey Dent", p1.age = 34
+MERGE (p2:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p2.name = "Mahesh Lal", p2.age = 30
+WITH COLLECT(f) as flights, f, user, p1, p2
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id: "251679be-1b3f-11e5-820e-6c40089a9424", booking_date:1417790677.274862, year: 2014, month: 12, day: 5})
+FOREACH(flight in flights| MERGE (j:Journey{date_of_journey:1421260200.0, year: 2015, month: 1, day: 15})-[:BY_FLIGHT]->(f))
+WITH user, booking, f, p1, p2 
+MATCH (j:Journey)-[:BY_FLIGHT]->(f)
+MERGE (booking)-[:HAS_PASSENGER]->(p1) 
+MERGE (booking)-[:HAS_PASSENGER]->(p2)
+WITH user, booking, f, p1, p2, COLLECT(j) as journeys, j
+FOREACH(journey in journeys | MERGE (booking)-[:HAS_JOURNEY]->(journey))
+RETURN user, f, j, booking, p1, p2;
+
+
+MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (f1:Flight{code:"UA1507"})
+MERGE (p1:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p1.name = "Mahesh Lal", p1.age = 30
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"75b3e78c-7e2b-11e4-a162-14109fda6b71", booking_date:1420095623.0, year:2015, month:1, day:1})
+MERGE (j1:Journey{_id:"6ec13c1a-1b40-11e5-b699-6c40089a9424", date_of_journey:1430418600.0, year:2015, month:5, day:1})-[:BY_FLIGHT]-> (f1)
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1) 
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name; 
+
+MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (f1:Flight{code:"AA920"})
+MERGE (p1:Passenger{email:"vishal.p@gmail.com"}) ON CREATE SET p1.name = "Vishal Punyani", p1.age = 30
+MERGE (p2:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p2.name = "Mahesh Lal", p2.age = 30
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"f87a515e-7e2d-11e4-b170-14109fda6b71", booking_date:1420095623.0, year:2015, month:1, day:1})
+MERGE (j1:Journey{_id:"a2797cd4-1b40-11e5-9992-6c40089a9424", date_of_journey:1431196200.0, year:2015, month:5, day:10})-[:BY_FLIGHT]-> (f1)
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_PASSENGER]->(p2)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name, p2.name; 
+
+
+MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (f1:Flight{code:"VS8"})
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"fef04c30-7e2d-11e4-8842-14109fda6b71", booking_date:1420096213.0, year:2015, month:1, day:1})
+MERGE (j1:Journey{_id:"da61af5e-1b40-11e5-ac97-6c40089a9424", date_of_journey:1422642600.0, year:2015, month:1, day:31})-[:BY_FLIGHT]-> (f1)
+MERGE (p1:Passenger{email:"harvey.dent@gmail.com"})ON CREATE SET p1.name = "Harvey Dent", p1.age = 34
+MERGE (p2:Passenger{email:"vishal.p@gmail.com"}) ON CREATE SET p2.name = "Vishal Punyani", p2.age = 30
+WITH user, booking, j1, f1, p1, p2
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_PASSENGER]->(p2)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name, p2.name; 
+
+MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (f1:Flight{code:"UA48"})
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"d45de0c2-1b62-11e5-98a2-6c40089a9424", booking_date:1381389013.0, year:2013, month:10, day:10})
+MERGE (p1:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p1.name = "Mahesh Lal", p1.age = 30
+MERGE (j1:Journey{_id:"8d51f8e4-1b41-11e5-8e65-6c40089a9424", date_of_journey:1384021800.0, year:2013, month:11, day:10})-[:BY_FLIGHT]-> (f1)
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name;
+
+MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (f1:Flight{code:"BA198"})
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"f5f15252-1b62-11e5-8252-6c40089a9424", booking_date:1381389323.0, year:2013, month:10, day:10})
+MERGE (j1:Journey{_id:"d4eb3b14-1b41-11e5-baa5-6c40089a9424", date_of_journey:1384799400.0, year:2013, month:11, day:19})-[:BY_FLIGHT]-> (f1)
+MERGE (p1:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p1.name = "Mahesh Lal", p1.age = 30
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name;
+
+MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (f1:Flight{code:"9W119"})
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"7c63cc35-7e7f-11e4-8ffe-14109fda6b71", booking_date:1385881332.0, year:2013, month:12, day:1})
+MERGE (j1:Journey{_id:"65a5e78c-1b42-11e5-8093-6c40089a9424", date_of_journey:1388860200.0, year:2014, month:1, day:5})-[:BY_FLIGHT]-> (f1)
+MERGE (p1:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p1.name = "Mahesh Lal", p1.age = 30
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name;
+
+MATCH (f1:Flight{code:"BA198"}), (user:User{email:"mahesh.lal@gmail.com"})
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"ff3dd694-7e7f-11e4-bb93-14109fda6b71", booking_date:1385881332.0, yeaR:2013, month:12, day:1})
+MERGE (j1:Journey{_id:"a5850018-1b42-11e5-962c-6c40089a9424", date_of_journey:1389378600.0, year:2014, month:1, day:11})-[:BY_FLIGHT]-> (f1)
+MERGE (p1:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p1.name = "Mahesh Lal", p1.age = 30
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name;
+
+MATCH (f1:Flight{code:"9W12"}), (user:User{email:"vishal.p@gmail.com"})
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"31f4f7dc-7e80-11e4-b27f-14109fda6b71", booking_date:1394726661.0, year:2014, month:3, day:13})
+MERGE (j1:Journey{_id:"d6f93524-1b42-11e5-8859-6c40089a9424", date_of_journey:1398796200.0, year:2014, month:4, day:30})-[:BY_FLIGHT]-> (f1)
+MERGE (p1:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p1.name = "Mahesh Lal", p1.age = 30
+WITH user, booking, j1, f1, p1
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p1.name;

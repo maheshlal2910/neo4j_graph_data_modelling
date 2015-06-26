@@ -1,0 +1,21 @@
+Input:
+neo4j-sh (?)$ MATCH (b:Booking)-[:HAS_PASSENGER]->(p:Passenger{email:"vishal.p@gmail.com"})
+WITH b
+MATCH (b)-[:HAS_JOURNEY]->(j:Journey)-[:BY_FLIGHT]->(f:Flight)
+WITH b._id as booking_id, j.date_of_journey as date_of_journey, COLLECT(f) as flights ORDER BY date_of_journey DESC
+MATCH (source:City)-[:HAS_FLIGHT]->(f)-[:FLYING_TO]->(destination:City)
+WHERE f in flights
+RETURN booking_id, date_of_journey, source.name as from, f.code as by_flight, destination.name as to;
+
+Output:
++------------------------------------------------------------------------------------------------------+
+| booking_id                             | date_of_journey | from          | by_flight | to            |
++------------------------------------------------------------------------------------------------------+
+| "f87a515e-7e2d-11e4-b170-14109fda6b71" | 1.4311962E9     | "Los Angeles" | "AA920"   | "New York"    |
+| "ccc84f47-7e28-11e4-90c4-14109fda6b71" | 1.426617E9      | "New York"    | "UA1507"  | "Los Angeles" |
+| "b5489547-7e24-11e4-b327-14109fda6b71" | 1.4263578E9     | "Mumbai"      | "UA49"    | "New York"    |
+| "fef04c30-7e2d-11e4-8842-14109fda6b71" | 1.4226426E9     | "New York"    | "VS8"     | "London"      |
+| "0f64711c-7e22-11e4-a1af-14109fda6b71" | 1.4222106E9     | "London"      | "VS9"     | "New York"    |
+| "0f64711c-7e22-11e4-a1af-14109fda6b71" | 1.4222106E9     | "New York"    | "AA9"     | "Los Angeles" |
++------------------------------------------------------------------------------------------------------+
+6 rows

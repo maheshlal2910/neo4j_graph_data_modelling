@@ -1,0 +1,22 @@
+Input:
+neo4j-sh (?)$ MATCH (user:User{email:"mahesh.lal@gmail.com"})-[:MADE_BOOKING]->(:Booking)-[:HAS_JOURNEY]-(j:Journey)
+WHERE j.date_of_journey >=1418055307 
+WITH COLLECT(j) as journeys
+MATCH (j:Journey)-[:BY_FLIGHT]->(f:Flight)
+WHERE j in journeys
+WITH j.date_of_journey as date_of_journey, COLLECT(f) as flights
+MATCH (source:City)-[:HAS_FLIGHT]->(f)-[:FLYING_TO]->(destination:City)
+WHERE f in flights
+RETURN date_of_journey, source.name as from, f.code as by_flight, destination.name as to;
+
+Output:
++-------------------------------------------------------------+
+| date_of_journey | from          | by_flight | to            |
++-------------------------------------------------------------+
+| 1.4226426E9     | "New York"    | "VS8"     | "London"      |
+| 1.4212602E9     | "Los Angeles" | "UA1262"  | "New York"    |
+| 1.4212602E9     | "Melbourne"   | "QF94"    | "Los Angeles" |
+| 1.4304186E9     | "New York"    | "UA1507"  | "Los Angeles" |
+| 1.4311962E9     | "Los Angeles" | "AA920"   | "New York"    |
++-------------------------------------------------------------+
+5 rows

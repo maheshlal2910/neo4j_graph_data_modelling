@@ -1,0 +1,14 @@
+CREATE CONSTRAINT ON (user:User) ASSERT user.email IS UNIQUE;
+
+CREATE (user:User{name:"Mahesh Lal", email:"mahesh.lal@gmail.com"});
+CREATE (user:User{name:"John Doe", email:"john.doe@gmail.com"});
+CREATE (user:User{name:"Vishal P", email:"vishal.p@gmail.com"});
+CREATE (user:User{name:"Dave Coeburg", email:"dave.coeburg@gmail.com"});
+
+CREATE (user:User{name:"Brian Heritage", email:"brian.heritage@hotmail.com"});
+CREATE (user:User{name:"Amit Kumar", email:"amit.kumar@hotmail.com"});
+CREATE (user:User{name:"Pramod Bansal", email:"pramod.bansal@hotmail.com"});
+
+CREATE (user:User{name:"Deepali T", email:"deepali.t@gmail.com"});
+CREATE (user:User{name:"Hari Senloo", email:"hari.seldon@gmail.com"});
+CREATE (user:User{name:"Elijah B", email:"elijah.b@gmail.com"});

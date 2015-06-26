@@ -1,0 +1,15 @@
+//Get all flights and users
+MATCH (user:User{email:"john.doe@gmail.com"})
+MATCH (f1:Flight{code:"VS9"}), (f2:Flight{code:"AA9"})
+//Create a booking for a date
+MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id:"0f64711c-7e22-11e4-a1af-14109fda6b71", booking_date:1417790677.274862, year: 2014, month: 12, day: 5})
+//Create journeys to be taken by flights
+MERGE (j1:Journey{_id: "712785b8-1aff-11e5-abd4-6c40089a9424", date_of_journey:1422210600.0, year:2015, month: 1, day: 26})-[:BY_FLIGHT]-> (f1)
+MERGE (j2:Journey{_id:"843de08c-1aff-11e5-8643-6c40089a9424", date_of_journey:1422210600.0, year:2015, month: 1, day: 26})-[:BY_FLIGHT]-> (f2)
+WITH user, booking, j1, j2, f1, f2
+//Merge journeys and booking, Create and Merge passengers with bookings, and return data
+MERGE (booking)-[:HAS_PASSENGER]->(p1:Passenger{name:"Vishal Punyani", email:"vishal.p@gmail.com", age: 30})
+MERGE (booking)-[:HAS_PASSENGER]->(p2:Passenger{name:"John Doe", email:"john.doe@gmail.com", age: 25})
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+MERGE (booking)-[:HAS_JOURNEY]->(j2)
+RETURN user, p1, p2, j1, j2, f1, f2, booking
