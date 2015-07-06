@@ -1,0 +1,737 @@
+CREATE CONSTRAINT ON (review:Review) ASSERT review._id IS UNIQUE;
+
+
+CREATE (review:Review{ _id:"d11f1d66-2331-11e5-ab8f-6c40089a9424", value_for_money: 2, comfort: 3, food: 4, service: 3, stayed_on: 1388670309.210871, created_on: 1391157765.857148, stay_year: 2014, stay_month: 1, stay_day: 2, description:"Was a comfortable stay. Could improve a lot though"}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19397f48-1c6f-11e5-8014-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1207198-2331-11e5-aca7-6c40089a9424", value_for_money: 3, comfort: 1, food: 3, service: 3, stayed_on: 1409724886.662147, created_on: 1410520898.138667, stay_year: 2014, stay_month: 9, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19397f48-1c6f-11e5-8014-6c40089a9424"}), (user:User {email: "john.doe@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1207466-2331-11e5-99ad-6c40089a9424", value_for_money: 2, comfort: 4, food: 1, service: 4, stayed_on: 1381565699.505601, created_on: 1383654753.330883, stay_year: 2013, stay_month: 10, stay_day: 12}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19397f48-1c6f-11e5-8014-6c40089a9424"}), (user:User {email: "vishal.p@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12076ac-2331-11e5-8107-6c40089a9424", value_for_money: 3, comfort: 4, food: 2, service: 4, stayed_on: 1388711418.376644, created_on: 1390021250.760678, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19397f48-1c6f-11e5-8014-6c40089a9424"}), (user:User {email: "dave.coeburg@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12078be-2331-11e5-bd72-6c40089a9424", value_for_money: 1, comfort: 2, food: 2, service: 2, stayed_on: 1434600624.996706, created_on: 1435012754.173528, stay_year: 2015, stay_month: 6, stay_day: 18}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19397f48-1c6f-11e5-8014-6c40089a9424"}), (user:User {email: "brian.heritage@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1207abe-2331-11e5-a91a-6c40089a9424", value_for_money: 4, comfort: 1, food: 3, service: 1, stayed_on: 1419080609.423828, created_on: 1420430667.537695, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19397f48-1c6f-11e5-8014-6c40089a9424"}), (user:User {email: "amit.kumar@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1207cc6-2331-11e5-a34a-6c40089a9424", value_for_money: 4, comfort: 2, food: 3, service: 4, stayed_on: 1419126775.124046, created_on: 1420979795.810611, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a630dad0-1c6b-11e5-8213-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1207ed8-2331-11e5-a3cc-6c40089a9424", value_for_money: 3, comfort: 2, food: 4, service: 1, stayed_on: 1387544526.612312, created_on: 1388119997.712224, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a630dad0-1c6b-11e5-8213-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12080d4-2331-11e5-86e3-6c40089a9424", value_for_money: 2, comfort: 2, food: 3, service: 1, stayed_on: 1419263174.434343, created_on: 1419606397.840664, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a630dad0-1c6b-11e5-8213-6c40089a9424"}), (user:User {email: "hari.seldon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12082c8-2331-11e5-a80f-6c40089a9424", value_for_money: 3, comfort: 1, food: 2, service: 2, stayed_on: 1376586820.130969, created_on: 1377447003.226598, stay_year: 2013, stay_month: 8, stay_day: 15}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a630dad0-1c6b-11e5-8213-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12084c8-2331-11e5-b1dc-6c40089a9424", value_for_money: 2, comfort: 3, food: 2, service: 4, stayed_on: 1388635457.792375, created_on: 1391050480.720788, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a630dad0-1c6b-11e5-8213-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12086b8-2331-11e5-b15f-6c40089a9424", value_for_money: 1, comfort: 3, food: 4, service: 4, stayed_on: 1387802183.473884, created_on: 1389200239.819147, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a630dad0-1c6b-11e5-8213-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12088b8-2331-11e5-aaf3-6c40089a9424", value_for_money: 3, comfort: 3, food: 2, service: 3, stayed_on: 1388680066.000837, created_on: 1389025569.181041, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a630dad0-1c6b-11e5-8213-6c40089a9424"}), (user:User {email: "ashier.loon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1208aac-2331-11e5-8656-6c40089a9424", value_for_money: 1, comfort: 4, food: 2, service: 2, stayed_on: 1419297777.689918, created_on: 1419721543.157356, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "938fc51c-1c6b-11e5-84ed-6c40089a9424"}), (user:User {email: "dominique.shepard@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1208cac-2331-11e5-bf95-6c40089a9424", value_for_money: 1, comfort: 3, food: 1, service: 2, stayed_on: 1419038114.118270, created_on: 1420964740.776872, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "938fc51c-1c6b-11e5-84ed-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1208ea8-2331-11e5-aa45-6c40089a9424", value_for_money: 4, comfort: 3, food: 3, service: 2, stayed_on: 1419228365.291006, created_on: 1421764499.593440, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "938fc51c-1c6b-11e5-84ed-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12090a6-2331-11e5-a08d-6c40089a9424", value_for_money: 1, comfort: 2, food: 4, service: 4, stayed_on: 1357711678.983162, created_on: 1360219148.959436, stay_year: 2013, stay_month: 1, stay_day: 9}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d1c4f7be-1c6b-11e5-a4a8-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12092a4-2331-11e5-a2fb-6c40089a9424", value_for_money: 1, comfort: 1, food: 2, service: 3, stayed_on: 1388621023.310934, created_on: 1390122625.082552, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d1c4f7be-1c6b-11e5-a4a8-6c40089a9424"}), (user:User {email: "hari.seldon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120948c-2331-11e5-ba15-6c40089a9424", value_for_money: 4, comfort: 4, food: 1, service: 1, stayed_on: 1387528491.429325, created_on: 1387857061.047330, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d1c4f7be-1c6b-11e5-a4a8-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1209694-2331-11e5-9328-6c40089a9424", value_for_money: 1, comfort: 2, food: 1, service: 3, stayed_on: 1359350487.662043, created_on: 1360517788.569566, stay_year: 2013, stay_month: 1, stay_day: 28}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d1c4f7be-1c6b-11e5-a4a8-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120988a-2331-11e5-9da7-6c40089a9424", value_for_money: 4, comfort: 2, food: 3, service: 3, stayed_on: 1387650732.819001, created_on: 1389781309.126949, stay_year: 2013, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "brian.heritage@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1209a80-2331-11e5-97e7-6c40089a9424", value_for_money: 3, comfort: 1, food: 2, service: 4, stayed_on: 1419063442.372948, created_on: 1419612966.973533, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "amit.kumar@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1209c7e-2331-11e5-9cca-6c40089a9424", value_for_money: 4, comfort: 4, food: 4, service: 2, stayed_on: 1419310784.685372, created_on: 1419757274.178956, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1209e78-2331-11e5-9eae-6c40089a9424", value_for_money: 2, comfort: 2, food: 1, service: 3, stayed_on: 1425343565.908705, created_on: 1426494003.832484, stay_year: 2015, stay_month: 3, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120a06e-2331-11e5-bf11-6c40089a9424", value_for_money: 3, comfort: 1, food: 1, service: 1, stayed_on: 1387637872.097603, created_on: 1389822607.342643, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "hale.orison@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120a262-2331-11e5-9b2b-6c40089a9424", value_for_money: 2, comfort: 2, food: 3, service: 1, stayed_on: 1388718758.980793, created_on: 1390055230.738638, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "wendy.boyle@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120a458-2331-11e5-80e6-6c40089a9424", value_for_money: 1, comfort: 2, food: 2, service: 1, stayed_on: 1423820499.103840, created_on: 1424666727.174892, stay_year: 2015, stay_month: 2, stay_day: 13}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "dominique.shepard@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120a652-2331-11e5-8826-6c40089a9424", value_for_money: 1, comfort: 3, food: 3, service: 1, stayed_on: 1404369494.406885, created_on: 1405127139.806536, stay_year: 2014, stay_month: 7, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120a848-2331-11e5-b5f5-6c40089a9424", value_for_money: 3, comfort: 4, food: 4, service: 2, stayed_on: 1417555988.468036, created_on: 1418808680.101561, stay_year: 2014, stay_month: 12, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e3aec462-1c6b-11e5-87a7-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120aa50-2331-11e5-82e3-6c40089a9424", value_for_money: 4, comfort: 4, food: 2, service: 3, stayed_on: 1387683915.827593, created_on: 1388061112.831936, stay_year: 2013, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d963eeb8-1c6b-11e5-b66c-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120ac46-2331-11e5-9c50-6c40089a9424", value_for_money: 4, comfort: 2, food: 1, service: 4, stayed_on: 1413830705.524566, created_on: 1414160253.321739, stay_year: 2014, stay_month: 10, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d963eeb8-1c6b-11e5-b66c-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120ae42-2331-11e5-8e3f-6c40089a9424", value_for_money: 3, comfort: 3, food: 2, service: 3, stayed_on: 1388683444.965991, created_on: 1389057938.025548, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d963eeb8-1c6b-11e5-b66c-6c40089a9424"}), (user:User {email: "hale.orison@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120b036-2331-11e5-9aeb-6c40089a9424", value_for_money: 2, comfort: 3, food: 3, service: 3, stayed_on: 1387576330.384658, created_on: 1388245962.305492, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d963eeb8-1c6b-11e5-b66c-6c40089a9424"}), (user:User {email: "wendy.boyle@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120b228-2331-11e5-8f9c-6c40089a9424", value_for_money: 4, comfort: 1, food: 2, service: 1, stayed_on: 1366003940.560372, created_on: 1366446617.333362, stay_year: 2013, stay_month: 4, stay_day: 15}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "d963eeb8-1c6b-11e5-b66c-6c40089a9424"}), (user:User {email: "dominique.shepard@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120b426-2331-11e5-9c07-6c40089a9424", value_for_money: 2, comfort: 4, food: 4, service: 2, stayed_on: 1408190719.636246, created_on: 1410294095.346685, stay_year: 2014, stay_month: 8, stay_day: 16}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "eba708be-1c6b-11e5-9880-6c40089a9424"}), (user:User {email: "wendy.boyle@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120b626-2331-11e5-a9bf-6c40089a9424", value_for_money: 1, comfort: 4, food: 3, service: 3, stayed_on: 1388647452.448204, created_on: 1389554966.259157, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "eba708be-1c6b-11e5-9880-6c40089a9424"}), (user:User {email: "dominique.shepard@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120b808-2331-11e5-a20f-6c40089a9424", value_for_money: 2, comfort: 2, food: 4, service: 4, stayed_on: 1387726741.875893, created_on: 1389372283.353414, stay_year: 2013, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "eba708be-1c6b-11e5-9880-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120ba02-2331-11e5-ae13-6c40089a9424", value_for_money: 4, comfort: 2, food: 2, service: 1, stayed_on: 1435590443.520785, created_on: 1437953493.388008, stay_year: 2015, stay_month: 6, stay_day: 29}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "eba708be-1c6b-11e5-9880-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120bbf8-2331-11e5-8a77-6c40089a9424", value_for_money: 1, comfort: 2, food: 4, service: 2, stayed_on: 1419091104.929129, created_on: 1419545303.633264, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "914ef0e2-1c6c-11e5-9839-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120bdec-2331-11e5-bba2-6c40089a9424", value_for_money: 3, comfort: 2, food: 4, service: 3, stayed_on: 1387529148.481161, created_on: 1389215727.600383, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "914ef0e2-1c6c-11e5-9839-6c40089a9424"}), (user:User {email: "john.doe@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120bfe2-2331-11e5-87ad-6c40089a9424", value_for_money: 2, comfort: 4, food: 4, service: 1, stayed_on: 1388670303.674073, created_on: 1389672466.750592, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "914ef0e2-1c6c-11e5-9839-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120c1ca-2331-11e5-af2a-6c40089a9424", value_for_money: 1, comfort: 2, food: 4, service: 1, stayed_on: 1421683398.161964, created_on: 1423788442.995983, stay_year: 2015, stay_month: 1, stay_day: 19}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "fb9ed530-1c6b-11e5-8db9-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120c3b6-2331-11e5-b10c-6c40089a9424", value_for_money: 2, comfort: 2, food: 4, service: 4, stayed_on: 1405260288.566135, created_on: 1405862805.511899, stay_year: 2014, stay_month: 7, stay_day: 13}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "fb9ed530-1c6b-11e5-8db9-6c40089a9424"}), (user:User {email: "john.doe@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120c59e-2331-11e5-a1a8-6c40089a9424", value_for_money: 2, comfort: 2, food: 4, service: 3, stayed_on: 1386096409.821239, created_on: 1388090865.800186, stay_year: 2013, stay_month: 12, stay_day: 4}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "fb9ed530-1c6b-11e5-8db9-6c40089a9424"}), (user:User {email: "vishal.p@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120c79c-2331-11e5-b135-6c40089a9424", value_for_money: 1, comfort: 2, food: 1, service: 3, stayed_on: 1387744651.780394, created_on: 1388064188.586368, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "fb9ed530-1c6b-11e5-8db9-6c40089a9424"}), (user:User {email: "dave.coeburg@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120c99a-2331-11e5-a6a0-6c40089a9424", value_for_money: 2, comfort: 3, food: 2, service: 1, stayed_on: 1376973835.479954, created_on: 1377875357.941994, stay_year: 2013, stay_month: 8, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f378396e-1c6b-11e5-85e0-6c40089a9424"}), (user:User {email: "hale.orison@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120cb90-2331-11e5-9641-6c40089a9424", value_for_money: 4, comfort: 1, food: 4, service: 4, stayed_on: 1422763877.527297, created_on: 1425349195.363853, stay_year: 2015, stay_month: 2, stay_day: 1}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f378396e-1c6b-11e5-85e0-6c40089a9424"}), (user:User {email: "wendy.boyle@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120cd80-2331-11e5-9337-6c40089a9424", value_for_money: 2, comfort: 3, food: 3, service: 4, stayed_on: 1388739727.945227, created_on: 1391083533.926146, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f378396e-1c6b-11e5-85e0-6c40089a9424"}), (user:User {email: "dominique.shepard@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120cf76-2331-11e5-b8b7-6c40089a9424", value_for_money: 3, comfort: 1, food: 1, service: 3, stayed_on: 1388634636.131307, created_on: 1389643797.304484, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f378396e-1c6b-11e5-85e0-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120d154-2331-11e5-a009-6c40089a9424", value_for_money: 1, comfort: 2, food: 4, service: 3, stayed_on: 1419272279.547920, created_on: 1419728148.403062, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f378396e-1c6b-11e5-85e0-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120d35e-2331-11e5-8bee-6c40089a9424", value_for_money: 2, comfort: 2, food: 4, service: 4, stayed_on: 1388688802.588676, created_on: 1389907547.841954, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "af080b8c-1c6c-11e5-a0ca-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120d548-2331-11e5-bfbb-6c40089a9424", value_for_money: 3, comfort: 2, food: 1, service: 4, stayed_on: 1419121440.198879, created_on: 1421567148.204064, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "af080b8c-1c6c-11e5-a0ca-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120d73e-2331-11e5-9b47-6c40089a9424", value_for_money: 2, comfort: 2, food: 4, service: 4, stayed_on: 1419044693.711796, created_on: 1419587249.595280, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "af080b8c-1c6c-11e5-a0ca-6c40089a9424"}), (user:User {email: "ashier.loon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120d92e-2331-11e5-98d5-6c40089a9424", value_for_money: 4, comfort: 3, food: 3, service: 4, stayed_on: 1419231137.695860, created_on: 1419733913.760781, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a4445228-1c6c-11e5-9e8a-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120db24-2331-11e5-a082-6c40089a9424", value_for_money: 3, comfort: 2, food: 4, service: 1, stayed_on: 1387630181.907762, created_on: 1389350796.123253, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a4445228-1c6c-11e5-9e8a-6c40089a9424"}), (user:User {email: "john.doe@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120dd18-2331-11e5-bddd-6c40089a9424", value_for_money: 3, comfort: 3, food: 3, service: 2, stayed_on: 1371894660.315513, created_on: 1372693814.759418, stay_year: 2013, stay_month: 6, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a4445228-1c6c-11e5-9e8a-6c40089a9424"}), (user:User {email: "vishal.p@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120df00-2331-11e5-a401-6c40089a9424", value_for_money: 4, comfort: 2, food: 2, service: 2, stayed_on: 1419212157.353607, created_on: 1419750238.903115, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "c51e52fa-1c6c-11e5-83ac-6c40089a9424"}), (user:User {email: "sadique.t@gmail.}com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120e100-2331-11e5-b145-6c40089a9424", value_for_money: 2, comfort: 4, food: 3, service: 2, stayed_on: 1419137157.258625, created_on: 1420718650.506987, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "c51e52fa-1c6c-11e5-83ac-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.}com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120e2ec-2331-11e5-9af6-6c40089a9424", value_for_money: 4, comfort: 3, food: 2, service: 3, stayed_on: 1388752739.709833, created_on: 1389092039.167676, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "c12dcb30-1c6c-11e5-86de-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120e4d2-2331-11e5-970f-6c40089a9424", value_for_money: 4, comfort: 2, food: 2, service: 1, stayed_on: 1377109553.563753, created_on: 1379357221.341166, stay_year: 2013, stay_month: 8, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "c12dcb30-1c6c-11e5-86de-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120e6d2-2331-11e5-b4a2-6c40089a9424", value_for_money: 4, comfort: 3, food: 3, service: 1, stayed_on: 1387643917.255087, created_on: 1388589659.281075, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "c12dcb30-1c6c-11e5-86de-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120e8c6-2331-11e5-92fa-6c40089a9424", value_for_money: 3, comfort: 3, food: 3, service: 3, stayed_on: 1387798677.489572, created_on: 1388633321.926923, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "b8f4de92-1c6c-11e5-aba7-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120eab0-2331-11e5-b697-6c40089a9424", value_for_money: 1, comfort: 4, food: 3, service: 4, stayed_on: 1362259757.340650, created_on: 1362675501.799234, stay_year: 2013, stay_month: 3, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "b8f4de92-1c6c-11e5-aba7-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120eca4-2331-11e5-b8a8-6c40089a9424", value_for_money: 1, comfort: 2, food: 3, service: 4, stayed_on: 1387771209.619675, created_on: 1389520127.234786, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "b8f4de92-1c6c-11e5-aba7-6c40089a9424"}), (user:User {email: "hari.seldon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120eea2-2331-11e5-afba-6c40089a9424", value_for_money: 3, comfort: 1, food: 3, service: 4, stayed_on: 1388716321.665179, created_on: 1389932359.760190, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e2859682-1c6c-11e5-b429-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120f080-2331-11e5-9ed8-6c40089a9424", value_for_money: 1, comfort: 2, food: 1, service: 4, stayed_on: 1388658002.004715, created_on: 1389437787.772159, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e2859682-1c6c-11e5-b429-6c40089a9424"}), (user:User {email: "hari.seldon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120f262-2331-11e5-88a7-6c40089a9424", value_for_money: 1, comfort: 1, food: 2, service: 4, stayed_on: 1387788657.500056, created_on: 1390059379.365225, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e2859682-1c6c-11e5-b429-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120f462-2331-11e5-aac6-6c40089a9424", value_for_money: 1, comfort: 1, food: 2, service: 1, stayed_on: 1388609353.210434, created_on: 1390968341.343976, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "db707cfe-1c6c-11e5-a501-6c40089a9424"}), (user:User {email: "brian.heritage@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120f652-2331-11e5-9aa2-6c40089a9424", value_for_money: 4, comfort: 3, food: 3, service: 3, stayed_on: 1388692614.593163, created_on: 1389821985.347481, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "db707cfe-1c6c-11e5-a501-6c40089a9424"}), (user:User {email: "hale.orison@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120f83e-2331-11e5-959a-6c40089a9424", value_for_money: 4, comfort: 1, food: 3, service: 1, stayed_on: 1426648204.903053, created_on: 1428906660.953434, stay_year: 2015, stay_month: 3, stay_day: 18}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "02989a98-1c6d-11e5-a8b1-6c40089a9424"}), (user:User {email: "brian.heritage@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120fa34-2331-11e5-b6df-6c40089a9424", value_for_money: 4, comfort: 2, food: 3, service: 3, stayed_on: 1388678570.552416, created_on: 1390394098.072416, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "02989a98-1c6d-11e5-a8b1-6c40089a9424"}), (user:User {email: "amit.kumar@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120fc12-2331-11e5-837e-6c40089a9424", value_for_money: 2, comfort: 3, food: 4, service: 3, stayed_on: 1419286982.914749, created_on: 1421676337.784960, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "02989a98-1c6d-11e5-a8b1-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d120fe10-2331-11e5-830f-6c40089a9424", value_for_money: 2, comfort: 3, food: 3, service: 2, stayed_on: 1361807554.616623, created_on: 1363646181.634439, stay_year: 2013, stay_month: 2, stay_day: 25}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f80d0c4c-1c6c-11e5-b5d3-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12100d8-2331-11e5-9089-6c40089a9424", value_for_money: 2, comfort: 1, food: 4, service: 2, stayed_on: 1387647660.196411, created_on: 1388487796.198170, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f80d0c4c-1c6c-11e5-b5d3-6c40089a9424"}), (user:User {email: "amit.kumar@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1210308-2331-11e5-98db-6c40089a9424", value_for_money: 3, comfort: 3, food: 1, service: 2, stayed_on: 1419068328.861168, created_on: 1420401306.511920, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f15e7d7a-1c6c-11e5-82c9-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1210502-2331-11e5-a754-6c40089a9424", value_for_money: 1, comfort: 1, food: 3, service: 1, stayed_on: 1375435938.656569, created_on: 1376295164.836916, stay_year: 2013, stay_month: 8, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f15e7d7a-1c6c-11e5-82c9-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1210700-2331-11e5-882b-6c40089a9424", value_for_money: 1, comfort: 3, food: 2, service: 4, stayed_on: 1388605381.474341, created_on: 1389554757.338839, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f15e7d7a-1c6c-11e5-82c9-6c40089a9424"}), (user:User {email: "dominique.shepard@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12108f6-2331-11e5-ba5b-6c40089a9424", value_for_money: 3, comfort: 3, food: 3, service: 2, stayed_on: 1388632506.899923, created_on: 1391110215.622637, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "f15e7d7a-1c6c-11e5-82c9-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1210ae2-2331-11e5-96a2-6c40089a9424", value_for_money: 1, comfort: 3, food: 1, service: 2, stayed_on: 1387558594.018380, created_on: 1389680716.951244, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e98860e8-1c6c-11e5-92e0-6c40089a9424"}), (user:User {email: "hari.seldon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1210cde-2331-11e5-96f3-6c40089a9424", value_for_money: 2, comfort: 2, food: 1, service: 1, stayed_on: 1410985967.337745, created_on: 1411259908.828431, stay_year: 2014, stay_month: 9, stay_day: 18}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "e98860e8-1c6c-11e5-92e0-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1210ef0-2331-11e5-b7f4-6c40089a9424", value_for_money: 3, comfort: 2, food: 2, service: 3, stayed_on: 1419101387.799484, created_on: 1419887704.088659, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19b08fcc-1c6d-11e5-8638-6c40089a9424"}), (user:User {email: "ashier.loon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12110ee-2331-11e5-b3f4-6c40089a9424", value_for_money: 4, comfort: 2, food: 3, service: 1, stayed_on: 1387686348.514204, created_on: 1388625113.565522, stay_year: 2013, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "130a85d8-1c6d-11e5-b328-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12112ee-2331-11e5-8ada-6c40089a9424", value_for_money: 2, comfort: 3, food: 3, service: 4, stayed_on: 1387544672.479344, created_on: 1389543736.411305, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "130a85d8-1c6d-11e5-b328-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12114d4-2331-11e5-8677-6c40089a9424", value_for_money: 2, comfort: 2, food: 3, service: 2, stayed_on: 1387540464.040930, created_on: 1387980224.789967, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "130a85d8-1c6d-11e5-b328-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12116ca-2331-11e5-81a8-6c40089a9424", value_for_money: 1, comfort: 4, food: 1, service: 2, stayed_on: 1419275632.961880, created_on: 1421796442.574313, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "130a85d8-1c6d-11e5-b328-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12118c0-2331-11e5-85f4-6c40089a9424", value_for_money: 3, comfort: 2, food: 1, service: 4, stayed_on: 1387583888.747711, created_on: 1387849433.199699, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "09c14e3a-1c6d-11e5-8309-6c40089a9424"}), (user:User {email: "hari.seldon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1211ab0-2331-11e5-a74b-6c40089a9424", value_for_money: 4, comfort: 3, food: 2, service: 2, stayed_on: 1419350015.215529, created_on: 1421287365.302053, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "09c14e3a-1c6d-11e5-8309-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1211cb0-2331-11e5-a9b6-6c40089a9424", value_for_money: 4, comfort: 2, food: 4, service: 2, stayed_on: 1421986276.603906, created_on: 1423146532.491043, stay_year: 2015, stay_month: 1, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "09c14e3a-1c6d-11e5-8309-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1211eae-2331-11e5-b154-6c40089a9424", value_for_money: 2, comfort: 3, food: 1, service: 2, stayed_on: 1387575150.976111, created_on: 1389122162.005043, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "09c14e3a-1c6d-11e5-8309-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12120ac-2331-11e5-b33c-6c40089a9424", value_for_money: 2, comfort: 4, food: 3, service: 1, stayed_on: 1364429925.555928, created_on: 1365935627.121853, stay_year: 2013, stay_month: 3, stay_day: 28}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "31c2d0b6-1c6d-11e5-9b83-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12122a2-2331-11e5-9f46-6c40089a9424", value_for_money: 3, comfort: 4, food: 3, service: 1, stayed_on: 1419111128.857851, created_on: 1421155364.829452, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "31c2d0b6-1c6d-11e5-9b83-6c40089a9424"}), (user:User {email: "john.doe@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121248a-2331-11e5-bc56-6c40089a9424", value_for_money: 4, comfort: 2, food: 2, service: 4, stayed_on: 1387217751.809169, created_on: 1388471958.744869, stay_year: 2013, stay_month: 12, stay_day: 16}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "31c2d0b6-1c6d-11e5-9b83-6c40089a9424"}), (user:User {email: "brian.heritage@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1212688-2331-11e5-a2b7-6c40089a9424", value_for_money: 3, comfort: 3, food: 2, service: 4, stayed_on: 1433704884.963709, created_on: 1434094493.271562, stay_year: 2015, stay_month: 6, stay_day: 8}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "26e0880a-1c6d-11e5-863b-6c40089a9424"}), (user:User {email: "hale.orison@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1212874-2331-11e5-a954-6c40089a9424", value_for_money: 1, comfort: 2, food: 1, service: 2, stayed_on: 1387527258.449841, created_on: 1388918535.723242, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "26e0880a-1c6d-11e5-863b-6c40089a9424"}), (user:User {email: "wendy.boyle@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1212a64-2331-11e5-941b-6c40089a9424", value_for_money: 2, comfort: 3, food: 2, service: 2, stayed_on: 1387762113.583830, created_on: 1389884958.799959, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "478eaa5c-1c6d-11e5-9810-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1212c6e-2331-11e5-b29c-6c40089a9424", value_for_money: 3, comfort: 2, food: 1, service: 1, stayed_on: 1419125573.032418, created_on: 1421298803.824469, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "478eaa5c-1c6d-11e5-9810-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1212e62-2331-11e5-9289-6c40089a9424", value_for_money: 2, comfort: 3, food: 1, service: 4, stayed_on: 1388702324.230343, created_on: 1390269490.294718, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "478eaa5c-1c6d-11e5-9810-6c40089a9424"}), (user:User {email: "ashier.loon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121304c-2331-11e5-825f-6c40089a9424", value_for_money: 1, comfort: 2, food: 1, service: 2, stayed_on: 1419062303.969829, created_on: 1421573898.761565, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "401b7c76-1c6d-11e5-9a52-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1213240-2331-11e5-bd18-6c40089a9424", value_for_money: 4, comfort: 2, food: 3, service: 4, stayed_on: 1388734512.563828, created_on: 1389793925.293576, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "401b7c76-1c6d-11e5-9a52-6c40089a9424"}), (user:User {email: "john.doe@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1213428-2331-11e5-8442-6c40089a9424", value_for_money: 4, comfort: 4, food: 4, service: 1, stayed_on: 1388618551.759058, created_on: 1389195057.102126, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "401b7c76-1c6d-11e5-9a52-6c40089a9424"}), (user:User {email: "vishal.p@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1213614-2331-11e5-896e-6c40089a9424", value_for_money: 4, comfort: 1, food: 3, service: 1, stayed_on: 1388627161.512865, created_on: 1390394193.316745, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "401b7c76-1c6d-11e5-9a52-6c40089a9424"}), (user:User {email: "dave.coeburg@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12137fe-2331-11e5-b32e-6c40089a9424", value_for_money: 1, comfort: 3, food: 4, service: 1, stayed_on: 1419301012.647285, created_on: 1421786467.515377, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "37450b9e-1c6d-11e5-a7dd-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12139f4-2331-11e5-9821-6c40089a9424", value_for_money: 1, comfort: 2, food: 4, service: 3, stayed_on: 1388651592.367053, created_on: 1389407240.990434, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "37450b9e-1c6d-11e5-a7dd-6c40089a9424"}), (user:User {email: "hari.seldon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1213bd2-2331-11e5-bc9d-6c40089a9424", value_for_money: 1, comfort: 1, food: 3, service: 1, stayed_on: 1419287667.252153, created_on: 1420842788.390555, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "37450b9e-1c6d-11e5-a7dd-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1213dd0-2331-11e5-831e-6c40089a9424", value_for_money: 3, comfort: 4, food: 1, service: 1, stayed_on: 1372958358.597669, created_on: 1374000272.732351, stay_year: 2013, stay_month: 7, stay_day: 4}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "37450b9e-1c6d-11e5-a7dd-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1213fc6-2331-11e5-ac7a-6c40089a9424", value_for_money: 3, comfort: 4, food: 4, service: 1, stayed_on: 1419340383.835822, created_on: 1421405877.639474, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "5640792c-1c6d-11e5-96a2-6c40089a9424"}), (user:User {email: "hale.orison@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12141c2-2331-11e5-a908-6c40089a9424", value_for_money: 1, comfort: 4, food: 4, service: 3, stayed_on: 1387482290.769337, created_on: 1389700689.265714, stay_year: 2013, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "5640792c-1c6d-11e5-96a2-6c40089a9424"}), (user:User {email: "wendy.boyle@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12143c0-2331-11e5-9bb4-6c40089a9424", value_for_money: 1, comfort: 1, food: 2, service: 2, stayed_on: 1388719091.549707, created_on: 1389305781.270527, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "4ee96f74-1c6d-11e5-b8da-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12145a2-2331-11e5-810b-6c40089a9424", value_for_money: 2, comfort: 3, food: 4, service: 3, stayed_on: 1419202562.907147, created_on: 1421337460.838440, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "4ee96f74-1c6d-11e5-b8da-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121479e-2331-11e5-902f-6c40089a9424", value_for_money: 1, comfort: 4, food: 2, service: 2, stayed_on: 1388679849.932383, created_on: 1388958411.918705, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "5d3ac4d8-1c6d-11e5-af56-6c40089a9424"}), (user:User {email: "amit.kumar@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1214988-2331-11e5-983b-6c40089a9424", value_for_money: 3, comfort: 4, food: 4, service: 3, stayed_on: 1400338996.305925, created_on: 1402846871.020123, stay_year: 2014, stay_month: 5, stay_day: 17}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "5d3ac4d8-1c6d-11e5-af56-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1214b7a-2331-11e5-a3b3-6c40089a9424", value_for_money: 3, comfort: 2, food: 3, service: 3, stayed_on: 1387657414.799849, created_on: 1388440491.443230, stay_year: 2013, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "5d3ac4d8-1c6d-11e5-af56-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1214d7a-2331-11e5-b0d9-6c40089a9424", value_for_money: 2, comfort: 4, food: 2, service: 2, stayed_on: 1419081206.721042, created_on: 1419705674.393094, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "70deb04c-1c6d-11e5-85f1-6c40089a9424"}), (user:User {email: "abet.ali@gmail.}com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1214f78-2331-11e5-9b05-6c40089a9424", value_for_money: 3, comfort: 3, food: 4, service: 1, stayed_on: 1419349585.835345, created_on: 1421635397.594067, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "70deb04c-1c6d-11e5-85f1-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.}com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1215176-2331-11e5-af92-6c40089a9424", value_for_money: 3, comfort: 4, food: 4, service: 2, stayed_on: 1419062733.125190, created_on: 1420443124.651472, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "64e12d5a-1c6d-11e5-b285-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121535e-2331-11e5-b2e0-6c40089a9424", value_for_money: 3, comfort: 4, food: 4, service: 1, stayed_on: 1388769545.966727, created_on: 1389259158.311243, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "64e12d5a-1c6d-11e5-b285-6c40089a9424"}), (user:User {email: "john.doe@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121554a-2331-11e5-a88c-6c40089a9424", value_for_money: 3, comfort: 4, food: 1, service: 3, stayed_on: 1387779670.756212, created_on: 1390311592.709869, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "64e12d5a-1c6d-11e5-b285-6c40089a9424"}), (user:User {email: "vishal.p@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1215740-2331-11e5-8725-6c40089a9424", value_for_money: 4, comfort: 3, food: 2, service: 1, stayed_on: 1388632719.025920, created_on: 1389632065.864199, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "64e12d5a-1c6d-11e5-b285-6c40089a9424"}), (user:User {email: "dave.coeburg@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121591e-2331-11e5-b872-6c40089a9424", value_for_money: 3, comfort: 3, food: 4, service: 2, stayed_on: 1419146688.585437, created_on: 1421491917.315634, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "64e12d5a-1c6d-11e5-b285-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1215b1c-2331-11e5-857c-6c40089a9424", value_for_money: 4, comfort: 1, food: 4, service: 4, stayed_on: 1388739826.099429, created_on: 1390960159.100011, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "7da955ca-1c6d-11e5-9b6b-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1215d06-2331-11e5-b944-6c40089a9424", value_for_money: 2, comfort: 1, food: 1, service: 3, stayed_on: 1387805694.059393, created_on: 1390393144.779921, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "7da955ca-1c6d-11e5-9b6b-6c40089a9424"}), (user:User {email: "dominique.shepard@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1215efa-2331-11e5-b9dd-6c40089a9424", value_for_money: 3, comfort: 2, food: 3, service: 4, stayed_on: 1419322238.237800, created_on: 1420375043.345571, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "7da955ca-1c6d-11e5-9b6b-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12160e4-2331-11e5-91da-6c40089a9424", value_for_money: 2, comfort: 4, food: 3, service: 3, stayed_on: 1387640009.537429, created_on: 1387835099.294588, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "7da955ca-1c6d-11e5-9b6b-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12162e2-2331-11e5-991e-6c40089a9424", value_for_money: 4, comfort: 2, food: 2, service: 4, stayed_on: 1387646997.564722, created_on: 1388439239.436769, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "783d1d24-1c6d-11e5-a864-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12164d4-2331-11e5-b69f-6c40089a9424", value_for_money: 1, comfort: 4, food: 2, service: 3, stayed_on: 1388741308.489611, created_on: 1389005224.921975, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "86ddcfa6-1c6d-11e5-834b-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12166c0-2331-11e5-aa13-6c40089a9424", value_for_money: 1, comfort: 2, food: 1, service: 1, stayed_on: 1409619078.622999, created_on: 1410426749.321041, stay_year: 2014, stay_month: 9, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "86ddcfa6-1c6d-11e5-834b-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12168b4-2331-11e5-8a31-6c40089a9424", value_for_money: 3, comfort: 2, food: 3, service: 2, stayed_on: 1432455442.713872, created_on: 1434345909.217133, stay_year: 2015, stay_month: 5, stay_day: 24}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "86ddcfa6-1c6d-11e5-834b-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1216aa8-2331-11e5-a9e2-6c40089a9424", value_for_money: 3, comfort: 4, food: 2, service: 1, stayed_on: 1388738954.282268, created_on: 1389235859.683691, stay_year: 2014, stay_month: 1, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "92c7bfc0-1c6d-11e5-a6f1-6c40089a9424"}), (user:User {email: "amit.kumar@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1216c88-2331-11e5-b00e-6c40089a9424", value_for_money: 3, comfort: 3, food: 1, service: 2, stayed_on: 1408793745.966483, created_on: 1409346981.214136, stay_year: 2014, stay_month: 8, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "92c7bfc0-1c6d-11e5-a6f1-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1216e7a-2331-11e5-a205-6c40089a9424", value_for_money: 2, comfort: 2, food: 4, service: 1, stayed_on: 1388621517.741575, created_on: 1389592433.643060, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "92c7bfc0-1c6d-11e5-a6f1-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121705c-2331-11e5-bf32-6c40089a9424", value_for_money: 2, comfort: 3, food: 4, service: 1, stayed_on: 1387768741.755055, created_on: 1389819986.719280, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "92c7bfc0-1c6d-11e5-a6f1-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1217264-2331-11e5-ad0c-6c40089a9424", value_for_money: 4, comfort: 1, food: 4, service: 4, stayed_on: 1360938601.397373, created_on: 1361395424.412771, stay_year: 2013, stay_month: 2, stay_day: 15}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "92c7bfc0-1c6d-11e5-a6f1-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121744c-2331-11e5-9d87-6c40089a9424", value_for_money: 4, comfort: 1, food: 3, service: 4, stayed_on: 1387775674.035458, created_on: 1389382806.242105, stay_year: 2013, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "92c7bfc0-1c6d-11e5-a6f1-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1217642-2331-11e5-adcb-6c40089a9424", value_for_money: 4, comfort: 1, food: 3, service: 1, stayed_on: 1414996042.078142, created_on: 1417172711.167741, stay_year: 2014, stay_month: 11, stay_day: 3}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a6f82a02-1c6d-11e5-b664-6c40089a9424"}), (user:User {email: "pramod.bansal@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d121782c-2331-11e5-a29b-6c40089a9424", value_for_money: 1, comfort: 3, food: 1, service: 4, stayed_on: 1432439801.818387, created_on: 1434675432.570883, stay_year: 2015, stay_month: 5, stay_day: 24}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a6f82a02-1c6d-11e5-b664-6c40089a9424"}), (user:User {email: "deepali.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1217a18-2331-11e5-b0f1-6c40089a9424", value_for_money: 3, comfort: 2, food: 1, service: 3, stayed_on: 1419100304.992830, created_on: 1419719213.426866, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a6f82a02-1c6d-11e5-b664-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1217c14-2331-11e5-bbce-6c40089a9424", value_for_money: 4, comfort: 4, food: 3, service: 3, stayed_on: 1419045227.275223, created_on: 1420907637.277330, stay_year: 2014, stay_month: 12, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a6f82a02-1c6d-11e5-b664-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1217dfe-2331-11e5-bc5c-6c40089a9424", value_for_money: 3, comfort: 1, food: 1, service: 4, stayed_on: 1388646848.397090, created_on: 1389108222.748665, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a0a04bf8-1c6d-11e5-a9f0-6c40089a9424"}), (user:User {email: "brian.heritage@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1217fe8-2331-11e5-a881-6c40089a9424", value_for_money: 1, comfort: 4, food: 1, service: 1, stayed_on: 1419308213.128840, created_on: 1419834578.044655, stay_year: 2014, stay_month: 12, stay_day: 23}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a0a04bf8-1c6d-11e5-a9f0-6c40089a9424"}), (user:User {email: "amit.kumar@hotmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12181e6-2331-11e5-953a-6c40089a9424", value_for_money: 2, comfort: 3, food: 3, service: 1, stayed_on: 1419129300.087522, created_on: 1419911550.728003, stay_year: 2014, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "a0a04bf8-1c6d-11e5-a9f0-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12183da-2331-11e5-817b-6c40089a9424", value_for_money: 2, comfort: 4, food: 3, service: 4, stayed_on: 1424399398.319648, created_on: 1426796671.183735, stay_year: 2015, stay_month: 2, stay_day: 20}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "9935a782-1c6d-11e5-9fd9-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12185cc-2331-11e5-95c1-6c40089a9424", value_for_money: 1, comfort: 1, food: 3, service: 4, stayed_on: 1419192718.130795, created_on: 1420562461.089638, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "9935a782-1c6d-11e5-9fd9-6c40089a9424"}), (user:User {email: "ashier.loon@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12187c2-2331-11e5-b4de-6c40089a9424", value_for_money: 3, comfort: 4, food: 4, service: 2, stayed_on: 1419259112.912997, created_on: 1421679739.682839, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "b56ce870-1c6d-11e5-9a3a-6c40089a9424"}), (user:User {email: "elijah.b@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d12189b8-2331-11e5-9fc1-6c40089a9424", value_for_money: 2, comfort: 1, food: 1, service: 2, stayed_on: 1388615329.074508, created_on: 1389324881.859070, stay_year: 2014, stay_month: 1, stay_day: 2}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "b56ce870-1c6d-11e5-9a3a-6c40089a9424"}), (user:User {email: "abet.ali@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1218b98-2331-11e5-affe-6c40089a9424", value_for_money: 4, comfort: 2, food: 2, service: 1, stayed_on: 1419231593.011776, created_on: 1420085235.842167, stay_year: 2014, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "b56ce870-1c6d-11e5-9a3a-6c40089a9424"}), (user:User {email: "tibiae.lai@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1218d8a-2331-11e5-aaab-6c40089a9424", value_for_money: 3, comfort: 2, food: 1, service: 1, stayed_on: 1387656271.596146, created_on: 1388593831.487815, stay_year: 2013, stay_month: 12, stay_day: 22}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "add04b3e-1c6d-11e5-ad22-6c40089a9424"}), (user:User {email: "sadique.t@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+CREATE (review:Review{ _id:"d1218f7e-2331-11e5-9148-6c40089a9424", value_for_money: 1, comfort: 4, food: 3, service: 1, stayed_on: 1387577168.806989, created_on: 1390128464.775923, stay_year: 2013, stay_month: 12, stay_day: 21}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "add04b3e-1c6d-11e5-ad22-6c40089a9424"}), (user:User {email: "shambhu.dayal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);

@@ -1,0 +1,14 @@
+Input:
+neo4j-sh (?)$ CREATE (review:Review{ _id:"d11f1d66-2331-11e5-ab8f-6c40089a9424", value_for_money: 2, comfort: 3, food: 4, service: 3, stayed_on: 1388670309.210871, created_on: 1391157765.857148, stay_year: 2014, stay_month: 1, stay_day: 2, description:"Was a comfortable stay. Could improve a lot though"}) 
+WITH review 
+MATCH (hotel:Hotel{_id: "19397f48-1c6f-11e5-8014-6c40089a9424"}), (user:User {email: "mahesh.lal@gmail.com"})
+WITH review, user, hotel MERGE (user)-[:WROTE]->(review)-[:FOR_HOTEL]->(hotel);
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Nodes created: 1
+Relationships created: 2
+Properties set: 11
+Labels added: 1

@@ -1,0 +1,29 @@
+Input:
+MATCH (city:City{name:"New York"})-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)<-[:FOR_HOTEL]-(review:Review)
+WITH DISTINCT hotel.name AS hotel_name, 
+COLLECT(review.comfort) AS comfort_ratings, 
+COLLECT(review.food) AS food_ratings, 
+COLLECT(review.service) AS service_ratings, 
+COLLECT(review.value_for_money) as vfm_ratings, 
+airport.code AS airport,
+COUNT(review) as total_reviews
+
+WITH 
+hotel_name, 
+tofloat(REDUCE(total = 0, rating in comfort_ratings | total + rating))/ total_reviews as comfort_rating,
+tofloat(REDUCE(total = 0, rating in food_ratings | total + rating))/ total_reviews as food_rating,
+tofloat(REDUCE(total = 0, rating in service_ratings | total + rating))/ total_reviews as service_rating,
+tofloat(REDUCE(total = 0, rating in vfm_ratings | total + rating))/ total_reviews as vfm_rating,
+airport, 
+total_reviews
+
+RETURN airport, 
+hotel_name, 
+comfort_rating, 
+service_rating, 
+food_rating, 
+vfm_rating, 
+(comfort_rating + service_rating + food_rating + vfm_rating)/4 as overall_rating
+ORDER BY overall_rating DESC
+
+Output:

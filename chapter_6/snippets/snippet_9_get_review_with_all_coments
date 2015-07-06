@@ -1,0 +1,5 @@
+Input:
+MATCH p = (review:Review{_id:"d120a06e-2331-11e5-bf11-6c40089a9424"})<-[:IN_REPLY_TO*1..]-(comment:Comment)<-[:WROTE]-(user:User)
+RETURN p
+
+Output:

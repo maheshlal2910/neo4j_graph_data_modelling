@@ -1,0 +1,8 @@
+Input:
+CREATE (new_comment:Comment{_id:"a3da3c5c-2350-11e5-9006-6c40089a9424", text: "Some issues with the air conditioner which led to a sleepless night", created_on: 1391723407.342643})
+WITH new_comment
+MATCH (comment:Comment{_id:"df23c188-2349-11e5-8966-6c40089a9424"}), (user:User{email:"hale.orison@gmail.com"})
+MERGE (user)-[:WROTE]->(new_comment)-[:IN_REPLY_TO]->(comment)
+RETURN user, new_comment, comment
+
+Output:

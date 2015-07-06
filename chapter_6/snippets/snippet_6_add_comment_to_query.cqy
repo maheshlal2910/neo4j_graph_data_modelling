@@ -1,0 +1,9 @@
+Input:
+CREATE (comment:Comment{_id:"df23c188-2349-11e5-8966-6c40089a9424", text:"What was wrong with the service?", created_on: 1391550607.342643})
+WITH comment
+MATCH (review:Review{_id:"d120a06e-2331-11e5-bf11-6c40089a9424"}), (user:User{email:"mahesh.lal@gmail.com"})
+WITH review, user, comment
+MERGE (review)<-[:IN_REPLY_TO]-(comment)<-[:WROTE]-(user)
+RETURN review, comment, user
+
+Output:

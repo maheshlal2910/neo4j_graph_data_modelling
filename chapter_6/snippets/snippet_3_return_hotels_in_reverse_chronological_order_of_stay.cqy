@@ -1,0 +1,18 @@
+Input:
+neo4j-sh (?)$ MATCH (hotel:Hotel{_id:'19397f48-1c6f-11e5-8014-6c40089a9424'})<-[:FOR_HOTEL]-(review:Review)<-[:WROTE]-(user:User)
+WITH review, user, review.stayed_on as stayed ORDER BY stayed DESC
+RETURN review.value_for_money as value_for_money, review.comfort as comfort, review.food as food, review.service as service, review.stay_year as year, review.stay_month as month, review.stay_day as day, user.name as name;
+
+Output:
++------------------------------------------------------------------------------------+
+| value_for_money | comfort | food | service | year | month | day | name             |
++------------------------------------------------------------------------------------+
+| 1               | 2       | 2    | 2       | 2015 | 6     | 18  | "Brian Heritage" |
+| 4               | 1       | 3    | 1       | 2014 | 12    | 20  | "Amit Kumar"     |
+| 3               | 1       | 3    | 3       | 2014 | 9     | 3   | "John Doe"       |
+| 3               | 4       | 2    | 4       | 2014 | 1     | 3   | "Dave Coeburg"   |
+| 2               | 3       | 4    | 3       | 2014 | 1     | 2   | "Mahesh Lal"     |
+| 2               | 4       | 1    | 4       | 2013 | 10    | 12  | "Vishal P"       |
++------------------------------------------------------------------------------------+
+6 rows
+31 ms
