@@ -1,0 +1,7 @@
+Input:
+CREATE (hotel:Hotel {_id:"6ad8ce6e-1c0e-11e5-8db1-6c40089a9424",  name:"Hilton", price: 180})
+WITH hotel
+MATCH (airport:Airport{code:"JFK"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;

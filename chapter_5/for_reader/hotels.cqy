@@ -1,0 +1,302 @@
+
+CREATE (hotel:Hotel{_id:"938fc51c-1c6b-11e5-84ed-6c40089a9424", name:"Ibis", price:80})
+WITH hotel
+MATCH (airport:Airport{code:"BOM"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"a630dad0-1c6b-11e5-8213-6c40089a9424", name:"Hilton", price:150})
+WITH hotel
+MATCH (airport:Airport{code:"BOM"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"19397f48-1c6f-11e5-8014-6c40089a9424", name:"J W Marriot Sahar", price:150})
+WITH hotel
+MATCH (airport:Airport{code:"BOM"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"d1c4f7be-1c6b-11e5-a4a8-6c40089a9424", name:"Wyndham", price:100})
+WITH hotel
+MATCH (airport:Airport{code:"EWR"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"d963eeb8-1c6b-11e5-b66c-6c40089a9424", name:"Fairfield Inn", price:80})
+WITH hotel
+MATCH (airport:Airport{code:"JFK"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"e3aec462-1c6b-11e5-87a7-6c40089a9424", name:"Hampton Inn", price:70})
+WITH hotel
+MATCH (airport:Airport{code:"JFK"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"eba708be-1c6b-11e5-9880-6c40089a9424", name:"LaGuardia Plaza", price:100})
+WITH hotel
+MATCH (airport:Airport{code:"LGA"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"f378396e-1c6b-11e5-85e0-6c40089a9424", name:"Double Tree", price:150})
+WITH hotel
+MATCH (airport:Airport{code:"ORD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"fb9ed530-1c6b-11e5-8db9-6c40089a9424", name:"Hilton", price:190})
+WITH hotel
+MATCH (airport:Airport{code:"ORD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"914ef0e2-1c6c-11e5-9839-6c40089a9424", name:"Embassy Suites", price:130})
+WITH hotel
+MATCH (airport:Airport{code:"ORD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"a4445228-1c6c-11e5-9e8a-6c40089a9424", name: "Hyatt", price:130})
+WITH hotel
+MATCH (airport:Airport{code:"LAS"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"af080b8c-1c6c-11e5-a0ca-6c40089a9424", name:"Travelodge", price:70})
+WITH hotel
+MATCH (airport:Airport{code:"LAS"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"b8f4de92-1c6c-11e5-aba7-6c40089a9424", name:"Concourse", price:100})
+WITH hotel
+MATCH (airport:Airport{code:"LAX"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"c12dcb30-1c6c-11e5-86de-6c40089a9424", name:"Sheraton", price:170})
+WITH hotel
+MATCH (airport:Airport{code:"LAX"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"c51e52fa-1c6c-11e5-83ac-6c40089a9424", name:"LAX South Travelodge", price:93})
+WITH hotel
+MATCH (airport:Airport{code:"LAX"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"db707cfe-1c6c-11e5-a501-6c40089a9424", name:"ALT Sheraton", price:123})
+WITH hotel
+MATCH (airport:Airport{code:"YYZ"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"e2859682-1c6c-11e5-b429-6c40089a9424", name:"Four Points", price:132})
+WITH hotel
+MATCH (airport:Airport{code:"YYZ"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"e98860e8-1c6c-11e5-92e0-6c40089a9424", name:"Plaza", price:98})
+WITH hotel
+MATCH (airport:Airport{code:"LHR"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"f15e7d7a-1c6c-11e5-82c9-6c40089a9424", name:"Hilton", price:150})
+WITH hotel
+MATCH (airport:Airport{code:"LHR"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"f80d0c4c-1c6c-11e5-b5d3-6c40089a9424", name:"Sofitel", price:75})
+WITH hotel
+MATCH (airport:Airport{code:"LHR"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"02989a98-1c6d-11e5-a8b1-6c40089a9424", name:"Yotel", price:84})
+WITH hotel
+MATCH (airport:Airport{code:"LHR"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"09c14e3a-1c6d-11e5-8309-6c40089a9424", name:"Hilton", price:140  })
+WITH hotel
+MATCH (airport:Airport{code:"LGW"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"130a85d8-1c6d-11e5-b328-6c40089a9424", name:"Bloc", price:70})
+WITH hotel
+MATCH (airport:Airport{code:"LGW"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"19b08fcc-1c6d-11e5-8638-6c40089a9424", name:"Sofitel", price:79  })
+WITH hotel
+MATCH (airport:Airport{code:"LGW"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"26e0880a-1c6d-11e5-863b-6c40089a9424", name:"Ibis", price:90})
+WITH hotel
+MATCH (airport:Airport{code:"MAD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"31c2d0b6-1c6d-11e5-9b83-6c40089a9424", name:"Air Rooms", price:63})
+WITH hotel
+MATCH (airport:Airport{code:"MAD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"37450b9e-1c6d-11e5-a7dd-6c40089a9424", name:"Novotel", price:120})
+WITH hotel
+MATCH (airport:Airport{code:"CDG"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"401b7c76-1c6d-11e5-9a52-6c40089a9424", name:"Ibis", price:97})
+WITH hotel
+MATCH (airport:Airport{code:"CDG"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"478eaa5c-1c6d-11e5-9810-6c40089a9424", name:"Hilton", price:146})
+WITH hotel
+MATCH (airport:Airport{code:"CDG"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"4ee96f74-1c6d-11e5-b8da-6c40089a9424", name:"Pantheon", price:140 })
+WITH hotel
+MATCH (airport:Airport{code:"ATH"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"5640792c-1c6d-11e5-96a2-6c40089a9424", name:"Sofitel", price:78})
+WITH hotel
+MATCH (airport:Airport{code:"ATH"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"5d3ac4d8-1c6d-11e5-af56-6c40089a9424", name:"Palacavicchi", price:76})
+WITH hotel
+MATCH (airport:Airport{code:"CIA"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"64e12d5a-1c6d-11e5-b285-6c40089a9424", name:"Hilton", price:134})
+WITH hotel
+MATCH (airport:Airport{code:"FCO"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"70deb04c-1c6d-11e5-85f1-6c40089a9424", name:"Sleep and Fly", price:20})
+WITH hotel
+MATCH (airport:Airport{code:"FCO"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"783d1d24-1c6d-11e5-a864-6c40089a9424", name:"WOW", price:35})
+WITH hotel
+MATCH (airport:Airport{code:"IST"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"7da955ca-1c6d-11e5-9b6b-6c40089a9424", name:"Radisson", price:56})
+WITH hotel
+MATCH (airport:Airport{code:"IST"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"86ddcfa6-1c6d-11e5-834b-6c40089a9424", name:"ISG", price:78})
+WITH hotel
+MATCH (airport:Airport{code:"SAW"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"92c7bfc0-1c6d-11e5-a6f1-6c40089a9424", name:"Ambassador", price:126})
+WITH hotel
+MATCH (airport:Airport{code:"SIN"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"9935a782-1c6d-11e5-9fd9-6c40089a9424", name:"Mercure", price:163})
+WITH hotel
+MATCH (airport:Airport{code:"SYD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"a0a04bf8-1c6d-11e5-a9f0-6c40089a9424", name:"Holiday Inn", price:140})
+WITH hotel
+MATCH (airport:Airport{code:"SYD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"a6f82a02-1c6d-11e5-b664-6c40089a9424", name:"Ibis", price:97})
+WITH hotel
+MATCH (airport:Airport{code:"SYD"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"add04b3e-1c6d-11e5-ad22-6c40089a9424", name:"Holiday Inn", price:140})
+WITH hotel
+MATCH (airport:Airport{code:"MEL"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+
+CREATE (hotel:Hotel{_id:"b56ce870-1c6d-11e5-9a3a-6c40089a9424", name:"Ibis", price:97})
+WITH hotel
+MATCH (airport:Airport{code:"MEL"})
+WITH airport, hotel
+MERGE (airport)-[:HAS_HOTEL]->(hotel)
+RETURN airport, hotel;
+

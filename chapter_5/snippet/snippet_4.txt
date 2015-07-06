@@ -1,0 +1,11 @@
+Input:
+neo4j-sh (?)$ MATCH (f:Flight)-[r]-(:City)
+DELETE r
+SET f.source_airport_code = null, f.destination_airport_code = null;
+
+Output
++--------------------------------------------+
+| No data returned                           |
++--------------------------------------------+
+Set 360 properties
+Deleted 180 relationships

@@ -1,0 +1,10 @@
+Input:
+
+MATCH (source:City)-[:HAS_FLIGHT]->(f:Flight)-[:FLYING_TO]->(destination:City)
+WITH source, f, destination
+MERGE (source_airport:Airport{code: f.source_airport_code})
+MERGE (destination_airport:Airport{code: f.destination_airport_code})
+WITH source, destination, source_airport, destination_airport
+MERGE (source)-[:HAS_AIRPORT]->(source_airport)
+MERGE (destination)-[:HAS_AIRPORT]->(destination_airport)
+RETURN source, destination, source_airport, destination_airport

@@ -1,0 +1,16 @@
+Input:
+neo4j-sh (?)$ MATCH (airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel) 
+WHERE airport.code IN ["JFK", "LAX"]
+RETURN airport.code, hotel.name, hotel.price;
+
+Ouptut:
++-----------------------------------------------------+
+| airport.code | hotel.name             | hotel.price |
++-----------------------------------------------------+
+| "JFK"        | "Hampton Inn"          | 70          |
+| "JFK"        | "Fairfield Inn"        | 80          |
+| "LAX"        | "LAX South Travelodge" | 93          |
+| "LAX"        | "Sheraton"             | 170         |
+| "LAX"        | "Concourse"            | 100         |
++-----------------------------------------------------+
+5 rows
