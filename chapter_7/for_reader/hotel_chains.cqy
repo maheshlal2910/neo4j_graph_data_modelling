@@ -1,0 +1,123 @@
+CREATE CONSTRAINT ON (chain:HotelChain) ASSERT chain.name IS UNIQUE;
+
+CREATE (chain:HotelChain{name:"Ibis Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Ibis"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Novotel Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Novotel"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Mercure Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Mercure"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Sofitel Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Sofitel"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Accor Hotels"}) 
+WITH chain 
+MATCH (hotelChain:HotelChain) WHERE hotelChain.name IN ["Ibis Hotels", "Novotel Hotels", "Mercure Hotels", "Sofitel Hotels"]
+MERGE (hotelChain)-[:BELONGS_TO]->(chain)
+RETURN hotelChain, chain;
+
+CREATE (chain:HotelChain{name:"Hilton Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Hilton", "Double Tree"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Holiday Inn Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Holiday Inn"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Travelodges"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Travelodge", "LAX South Travelodge"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Sheraton Group"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Sheraton", "ALT Sheraton", "Four Points"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Plaza Group"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Plaza", "LaGuardia Plaza"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Marriot Group"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["J W Marriot Sahar"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Airport Inn Hospitality"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Fairfield Inn", "Hampton Inn"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Wyndham"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Wyndham"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Ambassador Suites"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Embassy Suites", "Ambassador", "Concourse"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Hyatt Group"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Hyatt"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"United Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Yotel", "Bloc", "Air Rooms"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Grandi Alberghi Romani"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Pantheon", "Palacavicchi"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+
+CREATE (chain:HotelChain{name:"Airavat Group"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Sleep and Fly", "WOW"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"Radisson Group"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Radisson"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+CREATE (chain:HotelChain{name:"ISG"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["ISG"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+

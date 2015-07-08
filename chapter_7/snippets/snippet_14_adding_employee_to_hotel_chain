@@ -1,0 +1,9 @@
+Input:
+MATCH (chain:HotelChain{name:"Accor Hotels"}), (euAccess:AccessGroup{_id:"57096838-24a3-11e5-87db-6c40089a9424"})
+WITH chain, euAccess
+MERGE (employee:Employee{_id:17812}) ON CREATE SET employee.name = "Jeoffery Fraser"
+WITH employee, chain, euAccess
+CREATE UNIQUE (chain)<-[:EMPLOYED_BY]-(employee)-[:MEMBER_OF]->(euAccess)
+RETURN employee, euAccess, chain
+
+Output:

@@ -1,0 +1,4 @@
+Input:
+
+MATCH path = (region:Region)-[:SUB_REGION*1..]->(city:City)-[:HAS_AIRPORT]->(airport:Airport)
+RETURN path

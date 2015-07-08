@@ -1,0 +1,12 @@
+Input:
+MATCH (subsidiaryAccessGroup:AccessGroup), (chain:HotelChain{name:"Accor Hotels"})
+WHERE subsidiaryAccessGroup._id IN ["7506082e-24a2-11e5-b62b-6c40089a9424","539487e2-24a2-11e5-bb1b-6c40089a9424","cef89d02-24a1-11e5-821c-6c40089a9424","089cd024-249c-11e5-b902-6c40089a9424"]
+WITH subsidiaryAccessGroup, chain
+MERGE (accessGroup:AccessGroup{_id:"57096838-24a3-11e5-87db-6c40089a9424"}) ON CREATE SET accessGroup.name = "European Union"
+WITH subsidiaryAccessGroup, accessGroup, chain
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(subsidiaryAccessGroup)
+WITH chain, accessGroup
+MATCH p = (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS*1..]->(:Hotel)-[:BELONGS_TO]->(:HotelChain)
+RETURN p
+
+Output:

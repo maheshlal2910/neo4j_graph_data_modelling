@@ -1,0 +1,13 @@
+Input:
+MATCH p = (region:Region)-[:SUB_REGION*1..]->(city:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(hotelChain:HotelChain) 
+WITH p, hotelChain
+OPTIONAL MATCH (hotelChain)-[:BELONGS_TO]->(parent:HotelChain)
+RETURN 
+EXTRACT( node in FILTER(n in NODES(p) WHERE "Region" IN LABELS(n))| node.name) as region,
+EXTRACT( node in FILTER(n in NODES(p) WHERE "Country" IN LABELS(n))| node.name) as country,
+EXTRACT( node in FILTER(n in NODES(p) WHERE "City" IN LABELS(n))| node.name) as city,
+EXTRACT( node in FILTER(n in NODES(p) WHERE "Airport" IN LABELS(n))| node.code) as airport,
+EXTRACT( node in FILTER(n in NODES(p) WHERE "Hotel" IN LABELS(n))| node.name) as hotel,
+hotelChain.name as chain, parent.name as parentChain;
+
+Output:

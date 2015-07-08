@@ -1,0 +1,52 @@
+
+CREATE CONSTRAINT ON (accessGroup:AccessGroup) ASSERT accessGroup._id IS UNIQUE;
+
+MATCH (region:Region{name:"European Union"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Ibis Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"089cd024-249c-11e5-b902-6c40089a9424"}) ON CREATE SET accessGroup.name = "European Union"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel;
+
+MATCH (region:Region{name:"Asia"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Ibis Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"081c9efe-249c-11e5-a0bd-6c40089a9424"}) ON CREATE SET accessGroup.name = "Asia"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel;
+
+MATCH (region:Region{name:"Australia"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Ibis Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"0b275e36-249c-11e5-b02f-6c40089a9424"}) ON CREATE SET accessGroup.name = "Australia"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel;
+
+MATCH (region:Region{name:"France"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Novotel Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"cef89d02-24a1-11e5-821c-6c40089a9424"}) ON CREATE SET accessGroup.name = "France"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel;
+
+MATCH (region:Region{name:"Australia"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Mercure Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"019cbbf8-24a2-11e5-a003-6c40089a9424"}) ON CREATE SET accessGroup.name = "Australia"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel;
+
+
+MATCH (region:Region{name:"United Kingdom"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Sofitel Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"539487e2-24a2-11e5-bb1b-6c40089a9424"}) ON CREATE SET accessGroup.name = "United Kingdom"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel;
+
+MATCH (region:Region{name:"Greece"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Sofitel Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"7506082e-24a2-11e5-b62b-6c40089a9424"}) ON CREATE SET accessGroup.name = "Greece"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel;

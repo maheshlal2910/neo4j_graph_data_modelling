@@ -1,0 +1,8 @@
+Input:
+neo4j-sh (?)$ MATCH (city:City), (country:Country) SET city :Region, country :Region;
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Labels added: 26

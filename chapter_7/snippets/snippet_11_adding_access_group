@@ -1,0 +1,9 @@
+Input:
+MATCH (region:Region{name:"European Union"})-[:SUB_REGION*0..]->(:City)-[:HAS_AIRPORT]->(airport:Airport)-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO]->(chain:HotelChain{name:"Ibis Hotels"})
+WITH hotel, chain
+MERGE (accessGroup:AccessGroup{_id:"089cd024-249c-11e5-b902-6c40089a9424"}) ON CREATE SET accessGroup.name = "European Union"
+WITH chain, hotel, accessGroup
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(hotel)
+RETURN chain, accessGroup, hotel
+
+Output:

@@ -1,0 +1,25 @@
+CREATE CONSTRAINT ON (region:Region) ASSERT region.name IS UNIQUE;
+
+CREATE (region:Region{name:"North America"})
+WITH region
+MATCH (country:Country) WHERE country.name IN ["United States of America", "Canada"]
+MERGE (region)-[:SUB_REGION]->(country)
+RETURN region, country;
+
+CREATE (region:Region{name:"Asia"})
+WITH region
+MATCH (country:Country) WHERE country.name IN ["India", "Turkey", "Singapore"]
+MERGE (region)-[:SUB_REGION]->(country)
+RETURN region, country;
+
+CREATE (region:Region{name:"European Union"})
+WITH region
+MATCH (country:Country) WHERE country.name IN ["United Kingdom", "Spain", "France", "Greece", "Italy"]
+MERGE (region)-[:SUB_REGION]->(country)
+RETURN region, country;
+
+CREATE (region:Region{name:"Australia"})
+WITH region
+MATCH (country:Country) WHERE country.name IN ["Australia"]
+MERGE (region)-[:SUB_REGION]->(country)
+RETURN region, country;

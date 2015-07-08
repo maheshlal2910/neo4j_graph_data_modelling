@@ -1,0 +1,38 @@
+CREATE CONSTRAINT ON (emp:Employee) ASSERT emp._id IS UNIQUE; 
+
+MATCH (chain:HotelChain{name:"Accor Hotels"}), (euAccess:AccessGroup{_id:"57096838-24a3-11e5-87db-6c40089a9424"})
+WITH chain, euAccess
+MERGE (employee:Employee{_id:17812}) ON CREATE SET employee.name = "Jeoffery Fraser"
+WITH employee, chain, euAccess
+CREATE UNIQUE (chain)<-[:EMPLOYED_BY]-(employee)-[:MEMBER_OF]->(euAccess)
+RETURN employee, euAccess, chain;
+
+MATCH (chain:HotelChain{name:"Accor Hotels"}), (asiaAccess:AccessGroup{_id:"4892c090-24be-11e5-8796-6c40089a9424"})
+WITH chain, asiaAccess
+MERGE (employee:Employee{_id:12131}) ON CREATE SET employee.name = "Rajesh T"
+WITH employee, chain, asiaAccess
+CREATE UNIQUE (chain)<-[:EMPLOYED_BY]-(employee)-[:MEMBER_OF]->(asiaAccess)
+RETURN employee, asiaAccess, chain;
+
+MATCH (chain:HotelChain{name:"Sofitel Hotels"}), (greekAccess:AccessGroup{_id:"7506082e-24a2-11e5-b62b-6c40089a9424"})
+WITH chain, greekAccess
+MERGE (employee:Employee{_id:78641}) ON CREATE SET employee.name = "Tina Palmer"
+WITH employee, chain, greekAccess
+CREATE UNIQUE (chain)<-[:EMPLOYED_BY]-(employee)-[:MEMBER_OF]->(greekAccess)
+RETURN employee, greekAccess, chain;
+
+
+MATCH (chain:HotelChain{name:"Sofitel Hotels"}), (ukAccess:AccessGroup{_id:"539487e2-24a2-11e5-bb1b-6c40089a9424"})
+WITH chain, ukAccess
+MERGE (employee:Employee{_id:78647}) ON CREATE SET employee.name = "Jeremy Wu"
+WITH employee, chain, ukAccess
+CREATE UNIQUE (chain)<-[:EMPLOYED_BY]-(employee)-[:MEMBER_OF]->(ukAccess)
+RETURN employee, ukAccess, chain;
+
+
+MATCH (chain:HotelChain{name:"Ibis Hotels"}), (asiaAccess:AccessGroup{_id:"081c9efe-249c-11e5-a0bd-6c40089a9424"})
+WITH chain, asiaAccess
+MERGE (employee:Employee{_id:56452}) ON CREATE SET employee.name = "Tripti P"
+WITH employee, chain, asiaAccess
+CREATE UNIQUE (chain)<-[:EMPLOYED_BY]-(employee)-[:MEMBER_OF]->(asiaAccess)
+RETURN employee, asiaAccess, chain;

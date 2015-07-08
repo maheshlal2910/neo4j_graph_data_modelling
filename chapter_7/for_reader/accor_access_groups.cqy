@@ -1,0 +1,29 @@
+MATCH (subsidiaryAccessGroup:AccessGroup), (chain:HotelChain{name:"Accor Hotels"})
+WHERE subsidiaryAccessGroup._id IN ["7506082e-24a2-11e5-b62b-6c40089a9424","539487e2-24a2-11e5-bb1b-6c40089a9424","cef89d02-24a1-11e5-821c-6c40089a9424","089cd024-249c-11e5-b902-6c40089a9424"]
+WITH subsidiaryAccessGroup, chain
+MERGE (accessGroup:AccessGroup{_id:"57096838-24a3-11e5-87db-6c40089a9424"}) ON CREATE SET accessGroup.name = "European Union"
+WITH subsidiaryAccessGroup, accessGroup, chain
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(subsidiaryAccessGroup)
+WITH chain, accessGroup
+MATCH p = (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS*1..]->(:Hotel)-[:BELONGS_TO]->(:HotelChain)
+RETURN p;
+
+MATCH (subsidiaryAccessGroup:AccessGroup), (chain:HotelChain{name:"Accor Hotels"})
+WHERE subsidiaryAccessGroup._id IN ["081c9efe-249c-11e5-a0bd-6c40089a9424"]
+WITH subsidiaryAccessGroup, chain
+MERGE (accessGroup:AccessGroup{_id:"4892c090-24be-11e5-8796-6c40089a9424"}) ON CREATE SET accessGroup.name = "Asia"
+WITH subsidiaryAccessGroup, accessGroup, chain
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(subsidiaryAccessGroup)
+WITH chain, accessGroup
+MATCH p = (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS*1..]->(:Hotel)-[:BELONGS_TO]->(:HotelChain)
+RETURN p;
+
+MATCH (subsidiaryAccessGroup:AccessGroup), (chain:HotelChain{name:"Accor Hotels"})
+WHERE subsidiaryAccessGroup._id IN ["0b275e36-249c-11e5-b02f-6c40089a9424", "019cbbf8-24a2-11e5-a003-6c40089a9424"]
+WITH subsidiaryAccessGroup, chain
+MERGE (accessGroup:AccessGroup{_id:"8bb8cb8a-24be-11e5-af5d-6c40089a9424"}) ON CREATE SET accessGroup.name = "Australia"
+WITH subsidiaryAccessGroup, accessGroup, chain
+CREATE UNIQUE (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS]->(subsidiaryAccessGroup)
+WITH chain, accessGroup
+MATCH p = (chain)-[:HAS_ACCESS_GROUP]->(accessGroup)-[:CAN_ACCESS*1..]->(:Hotel)-[:BELONGS_TO]->(:HotelChain)
+RETURN p;

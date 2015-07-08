@@ -1,0 +1,7 @@
+Input:
+
+CREATE (region:Region{name:"North America"})
+WITH region
+MATCH (country:Country) WHERE country.name IN ["United States of America", "Canada"]
+MERGE (region)-[:SUB_REGION]->(country)
+RETURN region, country;

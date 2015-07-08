@@ -1,0 +1,7 @@
+Input:
+MATCH p = (chain:HotelChain)<-[:EMPLOYED_BY]-(employee:Employee{_id:17812})-[:MEMBER_OF]->(:AccessGroup)-[:CAN_ACCESS*0..]->(hotel:Hotel)-[:BELONGS_TO]->(hotelChain:HotelChain)
+WITH p, hotel
+MATCH (hotel)<-[:HAS_HOTEL]-(airport:Airport)<-[:HAS_AIRPORT]-(city:City)
+RETURN p, hotel, airport, city
+
+Output:

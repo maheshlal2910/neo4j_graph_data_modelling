@@ -1,0 +1,9 @@
+Input:
+MATCH (city:City)
+WITH city
+MERGE (country:Country{name: city.country})
+WITH country, city
+MERGE (country)-[:SUB_REGION]->(city)
+RETURN city, country
+
+Output:

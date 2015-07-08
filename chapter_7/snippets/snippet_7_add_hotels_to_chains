@@ -1,0 +1,8 @@
+Input:
+CREATE (chain:HotelChain{name:"Hilton Hotels"}) 
+WITH chain 
+MATCH (hotel:Hotel) WHERE hotel.name IN ["Hilton", "Double Tree"]
+MERGE (hotel)-[:BELONGS_TO]->(chain)
+RETURN hotel, chain;
+
+Output:
