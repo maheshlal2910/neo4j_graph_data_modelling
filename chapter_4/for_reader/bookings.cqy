@@ -32,20 +32,22 @@ MERGE (booking)-[:HAS_PASSENGER]->(p2)
 MERGE (booking)-[:HAS_JOURNEY]->(j1)
 RETURN user, booking.booking_date, j1.date_of_journey, f1.code, p2.name; 
 
-
-MATCH (f:Flight) WHERE f.code IN ["QF94", "UA1262"] MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (user:User{email:"mahesh.lal@gmail.com"})
+MATCH (f1:Flight{code:"QF94"}), (f2:Flight{code:"UA1262"})
 MERGE (p1:Passenger{email:"harvey.dent@gmail.com"})ON CREATE SET p1.name = "Harvey Dent", p1.age = 34
 MERGE (p2:Passenger{email:"mahesh.lal@gmail.com"}) ON CREATE SET p2.name = "Mahesh Lal", p2.age = 30
-WITH COLLECT(f) as flights, f, user, p1, p2
 MERGE (user)-[m:MADE_BOOKING]->(booking:Booking{_id: "251679be-1b3f-11e5-820e-6c40089a9424", booking_date:1417790677.274862, year: 2014, month: 12, day: 5})
-FOREACH(flight in flights| MERGE (j:Journey{date_of_journey:1421260200.0, year: 2015, month: 1, day: 15})-[:BY_FLIGHT]->(f))
-WITH user, booking, f, p1, p2 
-MATCH (j:Journey)-[:BY_FLIGHT]->(f)
-MERGE (booking)-[:HAS_PASSENGER]->(p1) 
+//Create journeys to be taken by flights
+MERGE (j1:Journey{_id: "ca86cde6-25f2-11e5-aba0-6c40089a9424", date_of_journey:1422210600.0, year:2015, month: 1, day: 26})-[:BY_FLIGHT]-> (f1)
+MERGE (j2:Journey{_id: "a3c52a5c-25f4-11e5-8ead-6c40089a9424", date_of_journey:1422210600.0, year:2015, month: 1, day: 26})-[:BY_FLIGHT]-> (f2)
+WITH user, booking, j1, j2, f1, f2, p1, p2
+//Merge journeys and booking, Create and Merge passengers with bookings, and return data
+MERGE (booking)-[:HAS_PASSENGER]->(p1)
 MERGE (booking)-[:HAS_PASSENGER]->(p2)
-WITH user, booking, f, p1, p2, COLLECT(j) as journeys, j
-FOREACH(journey in journeys | MERGE (booking)-[:HAS_JOURNEY]->(journey))
-RETURN user, f, j, booking, p1, p2;
+MERGE (booking)-[:HAS_JOURNEY]->(j1)
+MERGE (booking)-[:HAS_JOURNEY]->(j2)
+RETURN user, p1, p2, j1, j2, f1, f2, booking;
+
 
 
 MATCH (user:User{email:"mahesh.lal@gmail.com"})
