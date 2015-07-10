@@ -1,0 +1,8 @@
+CREATE CONSTRAINT ON (c:Category) ASSERT c.name IS UNIQUE;
+
+CREATE (c:Category{name:"Streets",  description: "Cities where there is a rich street art, street food etc."}) RETURN c;
+CREATE (c:Category{name:"Cosmopolitan Hotspot",  description: "Cities which are cosmopolitan"}) RETURN c;
+CREATE (c:Category{name:"Romantic",  description: "Cities which couples consider for a romantic holiday"}) RETURN c;
+CREATE (c:Category{name:"Historical Importance", description: "Cities with historical importance"}) RETURN c;
+CREATE (c:Category{name:"Architecture",  description: "Cities with beautiful architecture, both modern and classical"}) RETURN c;
+CREATE (c:Category{name:"Business",  description: "Cities that are business centres"}) RETURN c;

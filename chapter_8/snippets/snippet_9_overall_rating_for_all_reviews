@@ -1,0 +1,10 @@
+Input:
+
+neo4j-sh (?)$ MATCH (review:Review)
+SET review.overall_rating = toFloat(review.value_for_money + review.food + review.comfort + review.service)/4;
+
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Properties set: 159

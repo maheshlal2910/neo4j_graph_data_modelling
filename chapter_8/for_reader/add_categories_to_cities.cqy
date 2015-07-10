@@ -1,0 +1,58 @@
+MATCH (n:City{name:"Mumbai"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Mumbai"}), (c:Category{name:"Cosmopolitan Hotspot"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Mumbai"}), (c:Category{name:"Historical Importance"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Mumbai"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"New York"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"New York"}), (c:Category{name:"Cosmopolitan Hotspot"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"New York"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Chicago"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Las Vegas"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Los Angeles"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Los Angeles"}), (c:Category{name:"Cosmopolitan Hotspot"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Los Angeles"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Toronto"}), (c:Category{name:"Architecture"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Toronto"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"London"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"London"}), (c:Category{name:"Cosmopolitan Hotspot"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"London"}), (c:Category{name:"Historical Importance"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"London"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Madrid"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Madrid"}), (c:Category{name:"Romantic"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Madrid"}), (c:Category{name:"Historical Importance"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Madrid"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+
+MATCH (n:City{name:"Paris"}), (c:Category{name:"Romantic"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Paris"}), (c:Category{name:"Historical Importance"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Paris"}), (c:Category{name:"Architecture"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Paris"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Athens"}), (c:Category{name:"Historical Importance"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Athens"}), (c:Category{name:"Architecture"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Athens"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Rome"}), (c:Category{name:"Historical Importance"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Rome"}), (c:Category{name:"Architecture"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Istanbul"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Istanbul"}), (c:Category{name:"Historical Importance"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Istanbul"}), (c:Category{name:"Architecture"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Singapore"}), (c:Category{name:"Cosmopolitan Hotspot"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Singapore"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+MATCH (n:City{name:"Sydney"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Sydney"}), (c:Category{name:"Architecture"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Sydney"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+
+
+MATCH (n:City{name:"Melbourne"}), (c:Category{name:"Streets"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Melbourne"}), (c:Category{name:"Architecture"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+MATCH (n:City{name:"Melbourne"}), (c:Category{name:"Business"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);

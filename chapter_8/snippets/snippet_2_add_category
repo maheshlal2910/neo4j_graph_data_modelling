@@ -1,0 +1,3 @@
+Input:
+CREATE (c:Category{name:"Streets",  description: "Cities where there is a rich street art, street food etc."}) RETURN c;
+Output:

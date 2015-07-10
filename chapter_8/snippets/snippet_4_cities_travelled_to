@@ -1,0 +1,18 @@
+Input:
+neo4j-sh (?)$ MATCH (passenger:Passenger{email:"vishal.p@gmail.com"})<-[:HAS_PASSENGER]-(b:Booking)-[:HAS_JOURNEY]->(:Journey)-[:BY_FLIGHT]->(:Flight)-[r]-(airport:Airport)
+WITH DISTINCT b AS original_booking, COLLECT(airport) AS airports, passenger
+WITH original_booking, FILTER(airport IN airports WHERE 1=LENGTH(FILTER(a IN airports WHERE a=airport))) AS distinct_airports, passenger
+MATCH (airport:Airport)<-[:HAS_AIRPORT]-(city:City)
+WHERE airport IN distinct_airports
+RETURN  DISTINCT city.name;
+
+Output:
++---------------+
+| city.name     |
++---------------+
+| "Los Angeles" |
+| "London"      |
+| "New York"    |
+| "Mumbai"      |
++---------------+
+4 rows

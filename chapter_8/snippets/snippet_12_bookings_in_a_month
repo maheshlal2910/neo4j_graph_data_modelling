@@ -1,0 +1,16 @@
+Input:
+neo4j-sh (?)$ MATCH (booking:Booking)                             
+WITH COLLECT(booking) AS bookings, booking
+RETURN DISTINCT booking.month AS month, COUNT(bookings) AS num_of_bookings 
+ORDER BY num_of_bookings DESC;
+
+Output:
++-------------------------+
+| month | num_of_bookings |
++-------------------------+
+| 12    | 7               |
+| 10    | 3               |
+| 1     | 3               |
+| 3     | 1               |
++-------------------------+
+4 rows

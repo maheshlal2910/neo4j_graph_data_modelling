@@ -1,0 +1,12 @@
+Input:
+MATCH (user:User{email:"mahesh.lal@gmail.com"})-[:WROTE]->(:Review)-[:FOR_HOTEL]->(stayed:Hotel)<-[:FOR_HOTEL]-(:Review)<-[:WROTE]-(other_traveller:User) 
+WHERE NOT other_traveller = user
+WITH other_traveller
+MATCH (other_traveller)-[:WROTE]->(r:Review)-[:FOR_HOTEL]->(hotel:Hotel)<-[:HAS_HOTEL]-(airport:Airport{code:"IST"})
+RETURN
+DISTINCT hotel.name as Hotel, 
+COLLECT(DISTINCT other_traveller.name) AS Similar_travellers,
+SUM(r.overall_rating)/COUNT (DISTINCT other_traveller) AS avg_rating_by_similar_travellers
+ORDER BY avg_rating_by_similar_travellers DESC
+
+Output:

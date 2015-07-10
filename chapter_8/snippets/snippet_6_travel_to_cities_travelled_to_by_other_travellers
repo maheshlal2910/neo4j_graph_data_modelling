@@ -1,0 +1,33 @@
+Input:
+neo4j-sh (?)$ 
+//get all cities the traveller has been to
+MATCH (passenger:Passenger{email:"vishal.p@gmail.com"})<-[:HAS_PASSENGER]-(b:Booking)-[:HAS_JOURNEY]->(:Journey)-[:BY_FLIGHT]->(:Flight)-[r]-(airport:Airport)
+WITH DISTINCT b AS original_booking, COLLECT(airport) AS airports, passenger
+WITH original_booking, FILTER(airport IN airports WHERE 1=LENGTH(FILTER(a IN airports WHERE a=airport))) AS distinct_airports, passenger
+MATCH (airport:Airport)<-[:HAS_AIRPORT]-(city:City)
+WHERE airport IN distinct_airports
+WITH city, passenger
+//fetch other passengers who have travelled to this city
+MATCH (city)-[:HAS_AIRPORT]->(a:Airport)-[rel]-(:Flight)<-[:BY_FLIGHT]-(:Journey)<-[:HAS_JOURNEY]-(booking:Booking)-[:HAS_PASSENGER]->(other_passenger:Passenger)
+WHERE other_passenger <> passenger
+WITH DISTINCT other_passenger, city
+//find all bookings of other passengers who have travelled to same city
+MATCH (other_passenger)<-[:HAS_PASSENGER]-(other_booking:Booking)
+WITH DISTINCT other_booking, city
+//find all cities that the other travller has visited and filter out the cities that have been already visited
+MATCH (other_booking)-[:HAS_JOURNEY]->(j:Journey)-[:BY_FLIGHT]->(:Flight)-[r]-(other_airport:Airport)
+WITH DISTINCT other_booking._id as booking, COLLECT(DISTINCT j._id) as journey, COLLECT(other_airport) as other_airports, city
+WITH FILTER(unique_airport IN other_airports WHERE 1=LENGTH(FILTER(x IN other_airports WHERE x=unique_airport))) AS destination_airports, COLLECT(city) as visited
+UNWIND destination_airports as airport
+MATCH (airport:Airport)<-[:HAS_AIRPORT]-(other_city:City) 
+WHERE NOT other_city IN visited
+RETURN DISTINCT other_city.name as recommended_cities;
+
+Output:
++--------------------+
+| recommended_cities |
++--------------------+
+| "Singapore"        |
+| "Melbourne"        |
++--------------------+
+2 rows

@@ -1,0 +1,8 @@
+Input:
+MATCH (user:User{email:"brian.heritage@hotmail.com"})-[:WROTE]->(:Review)-[:FOR_HOTEL]->(hotel:Hotel)
+WITH MAX(hotel.price) AS max_price
+MATCH (airport:Airport{code:"ORD"})-[:HAS_HOTEL]->(hotel:Hotel)
+WHERE hotel.price <= max_price
+RETURN hotel.name, hotel.price
+
+Output:

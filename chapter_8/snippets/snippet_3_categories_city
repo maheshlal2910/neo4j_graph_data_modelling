@@ -1,0 +1,7 @@
+Input:
+neo4j-sh (?)$ MATCH (n:City{name:"Mumbai"}), (c:Category{name:"Cosmopolitan Hotspot"}) CREATE UNIQUE (n)-[:KNOWN_FOR]->(c);
+Output:
++-------------------+
+| No data returned. |
++-------------------+
+Relationships created: 1

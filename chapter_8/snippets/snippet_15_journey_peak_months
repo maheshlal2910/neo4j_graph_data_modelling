@@ -1,0 +1,17 @@
+Input:
+neo4j-sh (?)$ MATCH (journey:Journey)
+WITH COLLECT(journey) AS journeys, journey
+RETURN DISTINCT journey.month AS month, COUNT(journeys) AS num_of_journeys
+ORDER BY num_of_journeys DESC;
+
+Output:
++-------------------------+
+| month | num_of_journeys |
++-------------------------+
+| 1     | 7               |
+| 3     | 3               |
+| 11    | 2               |
+| 5     | 2               |
+| 4     | 1               |
++-------------------------+
+5 rows

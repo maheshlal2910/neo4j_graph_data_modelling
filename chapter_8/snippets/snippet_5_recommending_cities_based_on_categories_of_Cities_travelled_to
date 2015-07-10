@@ -1,0 +1,14 @@
+Input:
+MATCH (passenger:Passenger{email:"vishal.p@gmail.com"})<-[:HAS_PASSENGER]-(b:Booking)-[:HAS_JOURNEY]->(:Journey)-[:BY_FLIGHT]->(:Flight)-[r]-(airport:Airport)
+WITH DISTINCT b AS original_booking, COLLECT(airport) AS airports, passenger
+WITH original_booking, FILTER(airport IN airports WHERE 1=LENGTH(FILTER(a IN airports WHERE a=airport))) AS distinct_airports, passenger
+MATCH (airport:Airport)<-[:HAS_AIRPORT]-(city:City)
+WHERE airport IN distinct_airports
+WITH DISTINCT city
+MATCH (city)-[:KNOWN_FOR]->(category:Category)
+WITH DISTINCT category, COUNT(category) as relevance, COLLECT(city) as cities ORDER BY relevance DESC
+MATCH (other_city:City)-[:KNOWN_FOR]->(category)
+WHERE NOT other_city IN cities
+RETURN DISTINCT other_city.name, COLLECT(category.name), COUNT(category.name) as relevance ORDER BY relevance DESC
+
+Output:

@@ -1,0 +1,14 @@
+Input:
+neo4j-sh (?)$ MATCH (user:User{email:"mahesh.lal@gmail.com"})-[:WROTE]->(:Review)-[:FOR_HOTEL]->(stayed:Hotel)-[:BELONGS_TO*1..]->(
+chain:HotelChain)
+WITH chain, stayed
+MATCH (airport:Airport{code:"MEL"})-[:HAS_HOTEL]->(hotel:Hotel)-[:BELONGS_TO*1..]->(chain)
+RETURN DISTINCT hotel.name as Hotel, COLLECT(DISTINCT chain.name) as Hotel_Groups, COLLECT(DISTINCT stayed.name) AS Previous_Stays ;
+
+Output:
++--------------------------------------------------------------+
+| Hotel  | Hotel_Groups                   | Previous_Stays     |
++--------------------------------------------------------------+
+| "Ibis" | ["Ibis Hotels","Accor Hotels"] | ["Ibis","Sofitel"] |
++--------------------------------------------------------------+
+1 row

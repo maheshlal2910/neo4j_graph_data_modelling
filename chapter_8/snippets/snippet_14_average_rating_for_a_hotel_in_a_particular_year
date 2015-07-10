@@ -1,0 +1,5 @@
+Input:
+MATCH (chain:HotelChain{name:"Hilton Hotels"})<-[:BELONGS_TO]-(hotel:Hotel)<-[:FOR_HOTEL]-(review:Review)
+WITH review.stay_year as year, SUM(review.overall_rating) AS total_rating, COUNT(review) AS total_reviews, chain.name as group
+RETURN DISTINCT year, SUM(total_rating/total_reviews) as avg_rating, total_rating, total_reviews, group
+ORDER BY avg_rating DESC

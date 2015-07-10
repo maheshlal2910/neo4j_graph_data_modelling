@@ -1,0 +1,16 @@
+Input:
+neo4j-sh (?)$ MATCH (p1:Passenger{email:"mahesh.lal@gmail.com"})<-[:HAS_PASSENGER]-(:Booking)-[:HAS_JOURNEY]->(journey:Journey)
+WITH COLLECT(journey) AS journeys, journey, p1
+RETURN DISTINCT journey.month AS month, COUNT(journeys) AS count_journeys, p1.name as traveller_name 
+ORDER BY count_journeys DESC;
+
+Output:
++-----------------------------------------+
+| month | count_journeys | traveller_name |
++-----------------------------------------+
+| 1     | 4              | "Mahesh Lal"   |
+| 11    | 2              | "Mahesh Lal"   |
+| 5     | 1              | "Mahesh Lal"   |
+| 4     | 1              | "Mahesh Lal"   |
++-----------------------------------------+
+4 rows
